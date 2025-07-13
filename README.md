@@ -125,14 +125,6 @@ Las imágenes utilizadas en el proyecto están en la carpeta img. Incluyen:
 
 ---
 
-## Mejoras Futuras
-
-- Implementar un sistema de guardado de partidas.
-- Añadir soporte multijugador en línea para el Modo Jugable.
-- Permitir la descarga de puntuaciones exportadas en formato JSON.
-
----
-
 ## Créditos
 
 Este proyecto fue desarrollado como parte del **Proyecto Final ITI**. Todos los derechos reservados.
