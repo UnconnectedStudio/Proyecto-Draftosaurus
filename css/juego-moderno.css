@@ -1,0 +1,496 @@
+/**
+ * ESTILOS DEL JUEGO MODERNO
+ * Sistema visual avanzado para Draftosaurus
+ */
+
+/* ===== CONTENEDOR PRINCIPAL DEL JUEGO ===== */
+.tablero-juego-moderno {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "tablero panel-dinosaurios"
+        "tablero panel-dinosaurios"
+        "controles controles";
+    gap: 20px;
+    min-height: 70vh;
+    margin: 20px 0;
+}
+
+#tablero-container-placeholder {
+    grid-area: tablero;
+    min-height: 500px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== PANEL DE DINOSAURIOS ===== */
+.panel-dinosaurios {
+    grid-area: panel-dinosaurios;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.panel-header {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h2 {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.contador-mano .badge {
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+/* ===== TARJETAS DE DINOSAURIOS MODERNAS ===== */
+.tarjetas-dinosaurio-grid {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.tarjeta-dinosaurio-moderna {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta-dinosaurio-moderna:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.tarjeta-dinosaurio-moderna.seleccionado {
+    background: rgba(34, 197, 94, 0.2) !important;
+    border-color: #22c55e !important;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4) !important;
+    transform: translateY(-3px) !important;
+}
+
+.tarjeta-dinosaurio-moderna::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tarjeta-dinosaurio-moderna:hover::before {
+    opacity: 1;
+}
+
+/* ===== CONTENIDO DE TARJETA ===== */
+.dinosaurio-icono-grande {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.dinosaurio-info h3 {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    text-align: center;
+}
+
+.dinosaurio-detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.tipo-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tipo-carnivoro {
+    background: rgba(239, 68, 68, 0.8);
+    color: white;
+}
+
+.tipo-herbivoro {
+    background: rgba(34, 197, 94, 0.8);
+    color: white;
+}
+
+.familia-text {
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ===== BOTÓN SELECCIONAR MODERNO ===== */
+.boton-seleccionar-moderno {
+    width: 100%;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.boton-seleccionar-moderno:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.boton-seleccionar-moderno:active {
+    transform: translateY(0);
+}
+
+.tarjeta-dinosaurio-moderna.seleccionado .boton-seleccionar-moderno {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}
+
+.tarjeta-dinosaurio-moderna.seleccionado .boton-texto {
+    display: none;
+}
+
+.boton-icono {
+    display: none;
+}
+
+.tarjeta-dinosaurio-moderna.seleccionado .boton-icono {
+    display: inline;
+    font-size: 14px;
+}
+
+/* ===== PANEL DE CONTROL ===== */
+.panel-control {
+    grid-area: controles;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+#boton-confirmar {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#boton-confirmar:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+}
+
+#boton-confirmar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#boton-resetear {
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#boton-resetear:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.3);
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeOut {
+    0% { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(0.8); 
+    }
+}
+
+@keyframes slideInUp {
+    0% { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.tarjeta-dinosaurio-moderna {
+    animation: slideInUp 0.3s ease-out;
+}
+
+.tarjeta-dinosaurio-moderna:nth-child(2) { animation-delay: 0.1s; }
+.tarjeta-dinosaurio-moderna:nth-child(3) { animation-delay: 0.2s; }
+.tarjeta-dinosaurio-moderna:nth-child(4) { animation-delay: 0.3s; }
+.tarjeta-dinosaurio-moderna:nth-child(5) { animation-delay: 0.4s; }
+.tarjeta-dinosaurio-moderna:nth-child(6) { animation-delay: 0.5s; }
+
+/* ===== SCROLLBAR PERSONALIZADO ===== */
+.tarjetas-dinosaurio-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tarjetas-dinosaurio-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.tarjetas-dinosaurio-grid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.tarjetas-dinosaurio-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== EFECTOS DE PARTÍCULAS ===== */
+.tarjeta-dinosaurio-moderna.seleccionado::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulso 2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulso {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: translate(-50%, -50%) scale(0.8); 
+    }
+    50% { 
+        opacity: 0.6; 
+        transform: translate(-50%, -50%) scale(1.2); 
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .tablero-juego-moderno {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "tablero"
+            "panel-dinosaurios"
+            "controles";
+    }
+    
+    .panel-dinosaurios {
+        max-height: 300px;
+    }
+    
+    .tarjetas-dinosaurio-grid {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tablero-juego-moderno {
+        gap: 15px;
+        margin: 15px 0;
+    }
+    
+    #tablero-container-placeholder {
+        min-height: 350px;
+    }
+    
+    .panel-header {
+        padding: 12px 15px;
+    }
+    
+    .panel-header h2 {
+        font-size: 16px;
+    }
+    
+    .tarjetas-dinosaurio-grid {
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    .tarjeta-dinosaurio-moderna {
+        padding: 12px;
+    }
+    
+    .dinosaurio-icono-grande {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+    
+    .dinosaurio-info h3 {
+        font-size: 14px;
+    }
+    
+    .panel-control {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #boton-confirmar,
+    #boton-resetear {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tablero-juego-moderno {
+        gap: 10px;
+        margin: 10px 0;
+    }
+    
+    #tablero-container-placeholder {
+        min-height: 280px;
+    }
+    
+    .tarjeta-dinosaurio-moderna {
+        padding: 10px;
+    }
+    
+    .dinosaurio-icono-grande {
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+    
+    .dinosaurio-info h3 {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+    
+    .tipo-badge {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+    
+    .familia-text {
+        font-size: 11px;
+    }
+    
+    .boton-seleccionar-moderno {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+}
+
+/* ===== ESTADOS ESPECIALES ===== */
+.panel-dinosaurios.sin-dinosaurios {
+    opacity: 0.6;
+}
+
+.panel-dinosaurios.sin-dinosaurios::after {
+    content: '🦕 No hay dinosaurios disponibles';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #94a3b8;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ===== INDICADORES DE CARGA ===== */
+.cargando {
+    position: relative;
+    overflow: hidden;
+}
+
+.cargando::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: cargando 1.5s infinite;
+}
+
+@keyframes cargando {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* ===== TOOLTIPS MEJORADOS ===== */
+.tooltip-personalizado {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.tooltip-personalizado.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

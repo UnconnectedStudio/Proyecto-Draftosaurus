@@ -1,0 +1,1692 @@
+/* ===================================
+   RESPONSIVE - Media queries y adaptabilidad
+   Optimizado para rangos específicos:
+   - 320px - 576px: Móviles
+   - 577px - 992px: Tablets y pantallas medianas
+   - 993px+: Desktop
+   =================================== */
+
+/* ===== DESKTOP GRANDE (1200px+) ===== */
+@media (max-width: 1200px) {
+    .side-panel {
+        width: 300px;
+    }
+    
+    .main-logo img {
+        max-width: 220px;
+    }
+    
+    .btn-play {
+        padding: 14px 32px !important;
+        font-size: 1.1rem !important;
+    }
+    
+    .option-card {
+        width: 280px;
+        height: 360px;
+    }
+}
+
+/* ===================================
+   RANGO 577px - 992px: TABLETS Y PANTALLAS MEDIANAS
+   Transición suave entre móvil y desktop
+   =================================== */
+
+/* ===== TABLETS GRANDES (768px - 992px) ===== */
+@media (max-width: 992px) and (min-width: 768px) {
+    .main-screen {
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+    
+    .side-panel {
+        width: 320px;
+        height: calc(100vh - 30px);
+        margin: var(--spacing-md) var(--spacing-md) var(--spacing-md) 0;
+    }
+    
+    .info-panel {
+        width: 88%;
+        max-width: 650px;
+        height: 75vh;
+        padding: var(--spacing-xl);
+    }
+    
+    .info-title {
+        font-size: 1.8rem !important;
+    }
+    
+    .info-subtitle {
+        font-size: 1.2rem !important;
+    }
+    
+    .info-description p {
+        font-size: 0.95rem !important;
+    }
+    
+    .main-logo img {
+        max-width: 220px;
+    }
+    
+    .company-logo img {
+        max-width: 90px;
+    }
+    
+    .btn-play {
+        padding: 13px 32px !important;
+        font-size: 1.05rem !important;
+    }
+    
+    .options-container {
+        gap: 35px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .option-card {
+        width: 270px;
+        height: 330px;
+        padding: var(--spacing-lg);
+    }
+    
+    .option-image {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .option-text h3 {
+        font-size: 1.4rem !important;
+    }
+    
+    .option-text p {
+        font-size: 0.95rem !important;
+    }
+}
+
+/* ===== TABLETS MEDIANAS (577px - 767px) ===== */
+@media (max-width: 767px) and (min-width: 577px) {
+    .main-screen {
+        flex-direction: column;
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+    
+    .info-section {
+        height: 55vh;
+        padding: var(--spacing-md);
+    }
+    
+    .info-panel {
+        width: 92%;
+        height: 50vh;
+        padding: var(--spacing-lg);
+        gap: var(--spacing-md);
+    }
+    
+    .info-title {
+        font-size: 1.6rem !important;
+    }
+    
+    .info-subtitle {
+        font-size: 1.1rem !important;
+    }
+    
+    .info-description p {
+        font-size: 0.85rem !important;
+        line-height: 1.4;
+    }
+    
+    .feature-card {
+        min-height: 70px;
+        margin-bottom: 8px;
+    }
+    
+    .feature-card .card-body {
+        padding: 0.8rem !important;
+    }
+    
+    .feature-title {
+        font-size: 0.9rem !important;
+    }
+    
+    .feature-text {
+        font-size: 0.8rem !important;
+    }
+    
+    .side-panel {
+        width: calc(100% - 16px);
+        height: 45vh;
+        margin: var(--spacing-sm);
+        box-shadow: 
+            0 -15px 40px rgba(0, 0, 0, 0.4),
+            var(--shadow-inset);
+    }
+    
+    .panel-content {
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+    
+    .main-logo img {
+        max-width: 190px;
+    }
+    
+    .company-logo img {
+        max-width: 85px;
+    }
+    
+    .btn-play {
+        padding: 12px 28px !important;
+        font-size: 0.95rem !important;
+        min-width: 150px;
+    }
+    
+    .options-container {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+    
+    .option-card {
+        width: 280px;
+        height: 320px;
+        padding: var(--spacing-lg);
+    }
+    
+    .option-image {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .option-text h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .option-text p {
+        font-size: 0.9rem !important;
+    }
+    
+    .btn-back {
+        padding: 12px var(--spacing-lg) !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ===================================
+   RANGO 320px - 576px: MÓVILES
+   Máxima optimización para dispositivos pequeños
+   =================================== */
+
+/* ===== MÓVILES GRANDES (481px - 576px) ===== */
+@media (max-width: 576px) and (min-width: 481px) {
+    body {
+        overflow-y: auto;
+        background-attachment: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .main-screen {
+        min-height: 100vh;
+        height: auto;
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .info-section {
+        height: auto;
+        min-height: 50vh;
+        padding: 14px;
+    }
+    
+    .info-panel {
+        width: 100%;
+        height: auto;
+        min-height: 46vh;
+        max-height: 52vh;
+        padding: 20px;
+        gap: 16px;
+        border-radius: 12px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .info-title {
+        font-size: 1.5rem !important;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+    
+    .info-subtitle {
+        font-size: 1.05rem !important;
+        margin-bottom: 14px;
+        line-height: 1.3;
+    }
+    
+    .info-description p {
+        font-size: 0.9rem !important;
+        line-height: 1.4;
+        margin-bottom: 16px;
+        text-align: left;
+    }
+    
+    .game-features {
+        margin-top: 12px;
+    }
+    
+    .feature-card {
+        margin-bottom: 10px;
+        min-height: 70px;
+        border-radius: var(--border-radius-small) !important;
+        transition: transform var(--transition-fast);
+    }
+    
+    .feature-card:active {
+        transform: scale(0.98);
+    }
+    
+    .feature-card .card-body {
+        padding: 0.8rem !important;
+    }
+    
+    .feature-title {
+        font-size: 0.92rem !important;
+        margin-bottom: 5px !important;
+        font-weight: var(--font-weight-semibold);
+    }
+    
+    .feature-text {
+        font-size: 0.8rem !important;
+        line-height: 1.3;
+    }
+    
+    .side-panel {
+        width: 100%;
+        height: auto;
+        min-height: 44vh;
+        margin: 10px 0 0 0;
+        border-radius: 12px;
+    }
+    
+    .panel-content {
+        padding: 18px;
+        gap: 18px;
+    }
+    
+    .main-logo {
+        margin-bottom: 14px;
+    }
+    
+    .main-logo img {
+        max-width: 180px;
+    }
+    
+    .company-logo {
+        margin-bottom: 14px;
+    }
+    
+    .company-logo img {
+        max-width: 80px;
+    }
+    
+    .btn-play {
+        padding: 15px 30px !important;
+        font-size: 0.98rem !important;
+        min-height: 48px;
+        min-width: 150px;
+    }
+    
+    .options-container {
+        gap: 20px;
+        padding: 14px;
+        max-width: 100%;
+    }
+    
+    .option-card {
+        width: calc(100vw - 40px);
+        max-width: 320px;
+        height: 300px;
+        padding: 20px;
+        margin: 0 auto;
+        border-width: 2px;
+    }
+    
+    .option-content {
+        gap: 18px;
+    }
+    
+    .option-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 12px;
+    }
+    
+    .option-text h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 10px;
+    }
+    
+    .option-text p {
+        font-size: 0.9rem !important;
+        line-height: 1.4;
+    }
+    
+    .options-navigation {
+        bottom: 26px;
+        left: 26px;
+    }
+    
+    .btn-back {
+        padding: 13px var(--spacing-lg) !important;
+        min-height: 48px;
+        font-size: 0.92rem !important;
+    }
+    
+    .app-footer {
+        bottom: 10px;
+        right: 14px;
+    }
+    
+    .version-text {
+        font-size: 0.74rem !important;
+    }
+}
+
+/* ===== MÓVILES MEDIANOS (401px - 480px) ===== */
+@media (max-width: 480px) and (min-width: 401px) {
+    .main-screen {
+        padding: 8px;
+        gap: 8px;
+    }
+    
+    .info-section {
+        min-height: 48vh;
+        padding: 12px;
+    }
+    
+    .info-panel {
+        padding: 18px;
+        gap: 14px;
+        min-height: 44vh;
+        max-height: 50vh;
+    }
+    
+    .info-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 8px;
+    }
+    
+    .info-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 12px;
+    }
+    
+    .info-description p {
+        font-size: 0.86rem !important;
+        margin-bottom: 14px;
+    }
+    
+    .feature-card {
+        min-height: 66px;
+        margin-bottom: 8px;
+    }
+    
+    .feature-card .card-body {
+        padding: 0.75rem !important;
+    }
+    
+    .feature-title {
+        font-size: 0.88rem !important;
+        margin-bottom: 4px !important;
+    }
+    
+    .feature-text {
+        font-size: 0.76rem !important;
+    }
+    
+    .side-panel {
+        min-height: 42vh;
+        margin: 8px 0 0 0;
+    }
+    
+    .panel-content {
+        padding: 16px;
+        gap: 16px;
+    }
+    
+    .main-logo img {
+        max-width: 160px;
+    }
+    
+    .company-logo img {
+        max-width: 70px;
+    }
+    
+    .btn-play {
+        padding: 13px 26px !important;
+        font-size: 0.92rem !important;
+        min-width: 140px;
+    }
+    
+    .option-card {
+        width: calc(100vw - 32px);
+        max-width: 300px;
+        height: 280px;
+        padding: 18px;
+    }
+    
+    .option-image {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .option-text h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 8px;
+    }
+    
+    .option-text p {
+        font-size: 0.86rem !important;
+    }
+    
+    .options-navigation {
+        bottom: 22px;
+        left: 22px;
+    }
+    
+    .btn-back {
+        padding: 12px 18px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ===== MÓVILES PEQUEÑOS (361px - 400px) ===== */
+@media (max-width: 400px) and (min-width: 361px) {
+    .main-screen {
+        padding: 6px;
+        gap: 6px;
+    }
+    
+    .info-section {
+        padding: 10px;
+        min-height: 46vh;
+    }
+    
+    .info-panel {
+        padding: 16px;
+        gap: 12px;
+        min-height: 42vh;
+        max-height: 48vh;
+        border-radius: 10px;
+    }
+    
+    .info-title {
+        font-size: 1.3rem !important;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+    }
+    
+    .info-subtitle {
+        font-size: 0.96rem !important;
+        margin-bottom: 10px;
+    }
+    
+    .info-description p {
+        font-size: 0.82rem !important;
+        line-height: 1.35;
+        margin-bottom: 12px;
+    }
+    
+    .feature-card {
+        min-height: 62px;
+        margin-bottom: 6px;
+        border-radius: 8px !important;
+    }
+    
+    .feature-card .card-body {
+        padding: 0.65rem !important;
+    }
+    
+    .feature-title {
+        font-size: 0.82rem !important;
+        margin-bottom: 3px !important;
+    }
+    
+    .feature-text {
+        font-size: 0.72rem !important;
+    }
+    
+    .side-panel {
+        min-height: 40vh;
+        margin: 6px 0 0 0;
+        border-radius: 10px;
+    }
+    
+    .panel-content {
+        padding: 14px;
+        gap: 14px;
+    }
+    
+    .main-logo img {
+        max-width: 140px;
+    }
+    
+    .company-logo img {
+        max-width: 60px;
+    }
+    
+    .btn-play {
+        padding: 12px 24px !important;
+        font-size: 0.88rem !important;
+        min-width: 130px;
+        border-radius: 24px !important;
+    }
+    
+    .options-container {
+        gap: 16px;
+        padding: 10px;
+    }
+    
+    .option-card {
+        width: calc(100vw - 28px);
+        max-width: 280px;
+        height: 260px;
+        padding: 16px;
+        border-radius: 14px !important;
+    }
+    
+    .option-content {
+        gap: 14px;
+    }
+    
+    .option-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+    }
+    
+    .option-text h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 6px;
+    }
+    
+    .option-text p {
+        font-size: 0.82rem !important;
+        line-height: 1.35;
+    }
+    
+    .options-navigation {
+        bottom: 18px;
+        left: 18px;
+    }
+    
+    .btn-back {
+        padding: 11px 16px !important;
+        font-size: 0.88rem !important;
+        border-radius: 20px !important;
+    }
+    
+    .app-footer {
+        bottom: 8px;
+        right: 10px;
+    }
+    
+    .version-text {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* ===== MÓVILES MUY PEQUEÑOS (320px - 360px) ===== */
+@media (max-width: 360px) and (min-width: 320px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .main-screen {
+        padding: 4px;
+        gap: 4px;
+        min-height: 100vh;
+    }
+    
+    .info-section {
+        padding: 8px;
+        min-height: 44vh;
+    }
+    
+    .info-panel {
+        width: 100%;
+        padding: 14px;
+        gap: 10px;
+        min-height: 40vh;
+        max-height: 46vh;
+        border-width: 1.5px;
+        border-radius: 8px;
+    }
+    
+    .info-title {
+        font-size: 1.2rem !important;
+        letter-spacing: 0px;
+        margin-bottom: 4px;
+        line-height: 1.1;
+    }
+    
+    .info-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+    
+    .info-description p {
+        font-size: 0.78rem !important;
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+    
+    .game-features {
+        margin-top: 8px;
+    }
+    
+    .feature-card {
+        min-height: 58px;
+        margin-bottom: 4px;
+        border-width: 1px;
+        border-radius: 6px !important;
+    }
+    
+    .feature-card .card-body {
+        padding: 0.55rem !important;
+    }
+    
+    .feature-title {
+        font-size: 0.76rem !important;
+        margin-bottom: 2px !important;
+        line-height: 1.2;
+        font-weight: var(--font-weight-bold);
+    }
+    
+    .feature-text {
+        font-size: 0.68rem !important;
+        line-height: 1.25;
+    }
+    
+    .side-panel {
+        min-height: 38vh;
+        margin: 4px 0 0 0;
+        border-width: 1.5px;
+        border-radius: 8px;
+    }
+    
+    .panel-content {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .main-logo {
+        margin-bottom: 10px;
+    }
+    
+    .main-logo img {
+        max-width: 120px;
+    }
+    
+    .company-logo {
+        margin-bottom: 10px;
+    }
+    
+    .company-logo img {
+        max-width: 50px;
+    }
+    
+    .btn-play {
+        padding: 11px 20px !important;
+        font-size: 0.82rem !important;
+        letter-spacing: 0px;
+        min-width: 120px;
+        border-radius: 22px !important;
+        min-height: 44px;
+        font-weight: var(--font-weight-semibold);
+    }
+    
+    .options-container {
+        gap: 14px;
+        padding: 8px;
+    }
+    
+    .option-card {
+        width: calc(100vw - 24px);
+        max-width: 260px;
+        height: 240px;
+        padding: 14px;
+        border-width: 2px;
+        border-radius: 12px !important;
+    }
+    
+    .option-content {
+        gap: 12px;
+    }
+    
+    .option-image {
+        width: 90px;
+        height: 90px;
+        border-width: 1px;
+        border-radius: 8px;
+    }
+    
+    .option-image img {
+        max-width: 90%;
+        max-height: 90%;
+    }
+    
+    .option-text h3 {
+        font-size: 1.05rem !important;
+        margin-bottom: 5px;
+        line-height: 1.2;
+        font-weight: var(--font-weight-bold);
+    }
+    
+    .option-text p {
+        font-size: 0.78rem !important;
+        line-height: 1.3;
+    }
+    
+    .options-navigation {
+        bottom: 16px;
+        left: 16px;
+    }
+    
+    .btn-back {
+        padding: 10px 14px !important;
+        font-size: 0.84rem !important;
+        border-radius: 18px !important;
+        min-height: 42px;
+    }
+    
+    .app-footer {
+        bottom: 6px;
+        right: 8px;
+    }
+    
+    .version-text {
+        font-size: 0.68rem !important;
+    }
+}
+
+/* ===== MÓVILES ULTRA PEQUEÑOS (320px exacto) ===== */
+@media (max-width: 320px) {
+    body {
+        font-size: 13px;
+        background-attachment: scroll;
+    }
+    
+    .main-screen {
+        padding: 3px;
+        gap: 3px;
+    }
+    
+    .info-section {
+        padding: 6px;
+        min-height: 42vh;
+    }
+    
+    .info-panel {
+        padding: 12px;
+        gap: 8px;
+        min-height: 38vh;
+        max-height: 44vh;
+        border-width: 1px;
+        border-radius: 6px;
+    }
+    
+    .info-title {
+        font-size: 1.1rem !important;
+        letter-spacing: -0.5px;
+        margin-bottom: 3px;
+        line-height: 1.05;
+    }
+    
+    .info-subtitle {
+        font-size: 0.85rem !important;
+        margin-bottom: 6px;
+        line-height: 1.15;
+    }
+    
+    .info-description p {
+        font-size: 0.74rem !important;
+        line-height: 1.25;
+        margin-bottom: 8px;
+    }
+    
+    .game-features {
+        margin-top: 6px;
+    }
+    
+    .feature-card {
+        min-height: 54px;
+        margin-bottom: 3px;
+        border-width: 1px;
+        border-radius: 4px !important;
+    }
+    
+    .feature-card .card-body {
+        padding: 0.45rem !important;
+    }
+    
+    .feature-title {
+        font-size: 0.72rem !important;
+        margin-bottom: 1px !important;
+        line-height: 1.15;
+        font-weight: var(--font-weight-bold);
+    }
+    
+    .feature-text {
+        font-size: 0.64rem !important;
+        line-height: 1.2;
+    }
+    
+    .side-panel {
+        min-height: 36vh;
+        margin: 3px 0 0 0;
+        border-width: 1px;
+        border-radius: 6px;
+    }
+    
+    .panel-content {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .main-logo {
+        margin-bottom: 8px;
+    }
+    
+    .main-logo img {
+        max-width: 100px;
+    }
+    
+    .company-logo {
+        margin-bottom: 8px;
+    }
+    
+    .company-logo img {
+        max-width: 42px;
+    }
+    
+    .btn-play {
+        padding: 10px 18px !important;
+        font-size: 0.78rem !important;
+        letter-spacing: -0.2px;
+        min-width: 110px;
+        border-radius: 20px !important;
+        min-height: 42px;
+        font-weight: var(--font-weight-bold);
+    }
+    
+    .options-container {
+        gap: 12px;
+        padding: 6px;
+    }
+    
+    .option-card {
+        width: calc(100vw - 20px);
+        max-width: 240px;
+        height: 220px;
+        padding: 12px;
+        border-width: 1.5px;
+        border-radius: 10px !important;
+    }
+    
+    .option-content {
+        gap: 10px;
+    }
+    
+    .option-image {
+        width: 80px;
+        height: 80px;
+        border-width: 1px;
+        border-radius: 6px;
+    }
+    
+    .option-image img {
+        max-width: 85%;
+        max-height: 85%;
+    }
+    
+    .option-text h3 {
+        font-size: 0.95rem !important;
+        margin-bottom: 4px;
+        line-height: 1.15;
+        font-weight: var(--font-weight-bold);
+    }
+    
+    .option-text p {
+        font-size: 0.74rem !important;
+        line-height: 1.25;
+    }
+    
+    .options-navigation {
+        bottom: 14px;
+        left: 14px;
+    }
+    
+    .btn-back {
+        padding: 9px 12px !important;
+        font-size: 0.8rem !important;
+        border-radius: 16px !important;
+        min-height: 40px;
+    }
+    
+    .app-footer {
+        bottom: 4px;
+        right: 6px;
+    }
+    
+    .version-text {
+        font-size: 0.64rem !important;
+    }
+}
+
+/* ===================================
+   OPTIMIZACIONES GENERALES PARA MÓVILES
+   =================================== */
+
+@media (max-width: 576px) {
+    /* Desactivar animaciones complejas en móviles para mejor rendimiento */
+    .info-panel {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    /* Mejor scroll en iOS */
+    .info-panel,
+    .options-screen {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    /* Prevenir zoom en inputs */
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+    
+    /* Optimizar interacciones táctiles */
+    .option-card:hover {
+        transform: none;
+    }
+    
+    .option-card:active {
+        transform: scale(0.97);
+        transition: transform 0.1s ease;
+    }
+    
+    .btn-play:hover {
+        transform: none;
+    }
+    
+    .btn-play:active {
+        transform: scale(0.96);
+    }
+    
+    /* Mejorar áreas de toque */
+    .btn-play,
+    .btn-back,
+    .option-card {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Optimizar rendimiento */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Mejorar legibilidad */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* ===================================
+   MODO AUXILIAR - Responsive Design con Bootstrap
+   Adaptado para todos los breakpoints existentes
+   =================================== */
+
+/* ===== DESKTOP GRANDE (1200px+) ===== */
+@media (max-width: 1200px) {
+    /* Ajustes para pantallas grandes */
+    .auxiliary-main .display-5 {
+        font-size: 2rem !important;
+    }
+    
+    .auxiliary-main .fs-1 {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* ===== TABLETS GRANDES (768px - 992px) ===== */
+@media (max-width: 992px) and (min-width: 768px) {
+    /* Header ajustado para tablets */
+    .auxiliary-main .display-5 {
+        font-size: 1.8rem !important;
+    }
+    
+    .auxiliary-main .fs-1 {
+        font-size: 1.6rem !important;
+    }
+    
+    /* Grid de recintos - 2 columnas en tablets grandes */
+    .auxiliary-main .row.g-4 > .col-lg-6.col-xl-4 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+    
+    /* Cards más compactas */
+    .auxiliary-main .card-header {
+        padding: 0.75rem !important;
+    }
+    
+    .auxiliary-main .card-body {
+        padding: 0.75rem !important;
+    }
+    
+    /* Iconos de recintos más pequeños */
+    .auxiliary-main .card-header .bg-gradient {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .auxiliary-main .card-header .fs-3 {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Selectores en grid 2x2 */
+    .auxiliary-main .row.g-2 > .col-md-6.col-lg-12.col-xl-6 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}
+
+/* ===== TABLETS MEDIANAS (577px - 767px) ===== */
+@media (max-width: 767px) and (min-width: 577px) {
+    /* Header reorganizado verticalmente */
+    .auxiliary-main header .row {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    
+    .auxiliary-main .display-5 {
+        font-size: 1.6rem !important;
+        text-align: center !important;
+    }
+    
+    .auxiliary-main .fs-1 {
+        font-size: 1.4rem !important;
+    }
+    
+    /* Botón volver centrado */
+    .auxiliary-main .btn-outline-info {
+        align-self: center !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Score preview centrado */
+    .auxiliary-main .bg-dark.bg-opacity-50.border.border-success {
+        align-self: center !important;
+        margin-top: 0.5rem !important;
+    }
+    
+    /* Grid de recintos - 1 columna */
+    .auxiliary-main .row.g-4 > .col-lg-6.col-xl-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Cards más compactas */
+    .auxiliary-main .card {
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Header de card reorganizado */
+    .auxiliary-main .card-header {
+        padding: 1rem !important;
+    }
+    
+    .auxiliary-main .card-header .bg-gradient {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .auxiliary-main .card-header .fs-3 {
+        font-size: 1.3rem !important;
+    }
+    
+    /* Selectores en columna única */
+    .auxiliary-main .row.g-2 > .col-md-6.col-lg-12.col-xl-6 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Botones de acción apilados */
+    .auxiliary-main .d-flex.justify-content-center.gap-4 {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
+    }
+    
+    .auxiliary-main .btn-outline-warning,
+    .auxiliary-main .btn-warning {
+        width: 100% !important;
+        max-width: 300px !important;
+    }
+}
+
+/* ===== MÓVILES GRANDES (481px - 576px) ===== */
+@media (max-width: 576px) and (min-width: 481px) {
+    /* Header más compacto */
+    .auxiliary-main header {
+        padding: 0.75rem 0 !important;
+    }
+    
+    .auxiliary-main .display-5 {
+        font-size: 1.4rem !important;
+    }
+    
+    .auxiliary-main .fs-1 {
+        font-size: 1.2rem !important;
+    }
+    
+    .auxiliary-main .fs-6 {
+        font-size: 0.8rem !important;
+    }
+    
+    /* Botón volver más pequeño */
+    .auxiliary-main .btn-outline-info {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Score preview más compacto */
+    .auxiliary-main .bg-dark.bg-opacity-50.border.border-success {
+        padding: 0.5rem 1rem !important;
+    }
+    
+    .auxiliary-main .fs-4 {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Contenido principal con menos padding */
+    .auxiliary-main main {
+        padding: 2rem 0 !important;
+    }
+    
+    /* Card intro más compacta */
+    .auxiliary-main .card.bg-dark.bg-opacity-75.border-info {
+        margin: 0 0.5rem !important;
+    }
+    
+    .auxiliary-main .card-text.fs-5 {
+        font-size: 1rem !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+    
+    /* Cards de recintos más compactas */
+    .auxiliary-main .card.bg-dark.bg-opacity-75.border-warning {
+        margin-bottom: 1rem !important;
+    }
+    
+    .auxiliary-main .card-header {
+        padding: 0.75rem !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 0.5rem !important;
+    }
+    
+    .auxiliary-main .card-header .bg-gradient {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .auxiliary-main .card-title {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .auxiliary-main .card-text.small {
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* Selectores más compactos */
+    .auxiliary-main .form-select-sm {
+        font-size: 0.85rem !important;
+        padding: 0.25rem 0.5rem !important;
+    }
+    
+    /* Botones de acción */
+    .auxiliary-main .btn-outline-warning,
+    .auxiliary-main .btn-warning {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.95rem !important;
+    }
+}
+
+/* ===== MÓVILES MEDIANOS (401px - 480px) ===== */
+@media (max-width: 480px) and (min-width: 401px) {
+    /* Header aún más compacto */
+    .auxiliary-main .display-5 {
+        font-size: 1.3rem !important;
+    }
+    
+    .auxiliary-main .fs-1 {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Contenedor con menos padding */
+    .auxiliary-main .container-fluid {
+        padding: 0 0.5rem !important;
+    }
+    
+    /* Cards de recintos más pequeñas */
+    .auxiliary-main .card-header .bg-gradient {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .auxiliary-main .card-header .fs-3 {
+        font-size: 1.2rem !important;
+    }
+    
+    .auxiliary-main .card-title {
+        font-size: 1rem !important;
+    }
+    
+    .auxiliary-main .card-text.small {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Labels más pequeños */
+    .auxiliary-main .form-label.text-info.small {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Selectores más pequeños */
+    .auxiliary-main .form-select-sm {
+        font-size: 0.8rem !important;
+        padding: 0.2rem 0.4rem !important;
+    }
+    
+    /* Botones más compactos */
+    .auxiliary-main .btn-outline-warning,
+    .auxiliary-main .btn-warning {
+        padding: 0.6rem 1.2rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Instrucciones más compactas */
+    .auxiliary-main .btn-link {
+        padding: 1rem !important;
+        font-size: 1rem !important;
+    }
+    
+    .auxiliary-main .card.bg-dark.bg-opacity-50.border-info h6 {
+        font-size: 0.95rem !important;
+    }
+    
+    .auxiliary-main .card.bg-dark.bg-opacity-50.border-info p {
+        font-size: 0.8rem !important;
+    }
+}
+
+/* ===== MÓVILES PEQUEÑOS (361px - 400px) ===== */
+@media (max-width: 400px) and (min-width: 361px) {
+    /* Header muy compacto */
+    .auxiliary-main .display-5 {
+        font-size: 1.2rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .auxiliary-main .fs-1 {
+        font-size: 1rem !important;
+    }
+    
+    .auxiliary-main .fs-6 {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Botón volver más pequeño */
+    .auxiliary-main .btn-outline-info {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Score preview más pequeño */
+    .auxiliary-main .fs-4 {
+        font-size: 1rem !important;
+    }
+    
+    /* Contenido principal */
+    .auxiliary-main main {
+        padding: 1.5rem 0 !important;
+    }
+    
+    /* Card intro */
+    .auxiliary-main .card-text.fs-5 {
+        font-size: 0.9rem !important;
+    }
+    
+    .auxiliary-main .card-text.fs-5 .fs-2 {
+        font-size: 1.3rem !important;
+    }
+    
+    /* Cards de recintos muy compactas */
+    .auxiliary-main .card-header {
+        padding: 0.6rem !important;
+    }
+    
+    .auxiliary-main .card-header .bg-gradient {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .auxiliary-main .card-header .fs-3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .auxiliary-main .card-title {
+        font-size: 0.95rem !important;
+    }
+    
+    .auxiliary-main .card-text.small {
+        font-size: 0.7rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    /* Badge más pequeño */
+    .auxiliary-main .badge {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.7rem !important;
+    }
+    
+    /* Selectores muy pequeños */
+    .auxiliary-main .form-select-sm {
+        font-size: 0.75rem !important;
+        padding: 0.15rem 0.3rem !important;
+        min-height: 32px !important;
+    }
+    
+    /* Labels muy pequeños */
+    .auxiliary-main .form-label.text-info.small {
+        font-size: 0.65rem !important;
+    }
+}
+
+/* ===== MÓVILES MUY PEQUEÑOS (320px - 360px) ===== */
+@media (max-width: 360px) and (min-width: 320px) {
+    /* Header ultra compacto */
+    .auxiliary-main .display-5 {
+        font-size: 1.1rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .auxiliary-main .fs-1 {
+        font-size: 0.9rem !important;
+    }
+    
+    .auxiliary-main .fs-6 {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Contenedor muy ajustado */
+    .auxiliary-main .container-fluid {
+        padding: 0 0.25rem !important;
+    }
+    
+    /* Header con padding mínimo */
+    .auxiliary-main header {
+        padding: 0.5rem 0 !important;
+    }
+    
+    /* Botón volver muy pequeño */
+    .auxiliary-main .btn-outline-info {
+        padding: 0.3rem 0.6rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Score preview muy compacto */
+    .auxiliary-main .bg-dark.bg-opacity-50.border.border-success {
+        padding: 0.4rem 0.8rem !important;
+    }
+    
+    .auxiliary-main .fs-4 {
+        font-size: 0.95rem !important;
+    }
+    
+    /* Contenido principal muy compacto */
+    .auxiliary-main main {
+        padding: 1rem 0 !important;
+    }
+    
+    /* Card intro muy pequeña */
+    .auxiliary-main .card.bg-dark.bg-opacity-75.border-info {
+        margin: 0 0.25rem !important;
+    }
+    
+    .auxiliary-main .card-body {
+        padding: 0.75rem !important;
+    }
+    
+    .auxiliary-main .card-text.fs-5 {
+        font-size: 0.85rem !important;
+    }
+    
+    .auxiliary-main .card-text.fs-5 .fs-2 {
+        font-size: 1.2rem !important;
+    }
+    
+    /* Cards de recintos ultra compactas */
+    .auxiliary-main .row.g-4 {
+        gap: 0.75rem !important;
+    }
+    
+    .auxiliary-main .card-header {
+        padding: 0.5rem !important;
+    }
+    
+    .auxiliary-main .card-header .bg-gradient {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .auxiliary-main .card-header .fs-3 {
+        font-size: 1rem !important;
+    }
+    
+    .auxiliary-main .card-title {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+    
+    .auxiliary-main .card-text.small {
+        font-size: 0.65rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    /* Badge muy pequeño */
+    .auxiliary-main .badge {
+        padding: 0.2rem 0.4rem !important;
+        font-size: 0.65rem !important;
+    }
+    
+    /* Selectores ultra pequeños */
+    .auxiliary-main .form-select-sm {
+        font-size: 0.7rem !important;
+        padding: 0.1rem 0.2rem !important;
+        min-height: 30px !important;
+    }
+    
+    /* Labels ultra pequeños */
+    .auxiliary-main .form-label.text-info.small {
+        font-size: 0.6rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+    
+    /* Botones muy pequeños */
+    .auxiliary-main .btn-outline-warning,
+    .auxiliary-main .btn-warning {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Instrucciones muy compactas */
+    .auxiliary-main .btn-link {
+        padding: 0.75rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .auxiliary-main .card.bg-dark.bg-opacity-50.border-info .fs-1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .auxiliary-main .card.bg-dark.bg-opacity-50.border-info h6 {
+        font-size: 0.85rem !important;
+    }
+    
+    .auxiliary-main .card.bg-dark.bg-opacity-50.border-info p {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* ===== MÓVILES ULTRA PEQUEÑOS (320px exacto) ===== */
+@media (max-width: 320px) {
+    /* Header extremadamente compacto */
+    .auxiliary-main .display-5 {
+        font-size: 1rem !important;
+        line-height: 1 !important;
+    }
+    
+    .auxiliary-main .fs-1 {
+        font-size: 0.85rem !important;
+    }
+    
+    .auxiliary-main .fs-6 {
+        font-size: 0.65rem !important;
+    }
+    
+    /* Contenedor ultra ajustado */
+    .auxiliary-main .container-fluid {
+        padding: 0 0.2rem !important;
+    }
+    
+    /* Header con padding ultra mínimo */
+    .auxiliary-main header {
+        padding: 0.4rem 0 !important;
+    }
+    
+    /* Botón volver ultra pequeño */
+    .auxiliary-main .btn-outline-info {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.75rem !important;
+    }
+    
+    /* Score preview ultra compacto */
+    .auxiliary-main .bg-dark.bg-opacity-50.border.border-success {
+        padding: 0.3rem 0.6rem !important;
+    }
+    
+    .auxiliary-main .fs-4 {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Cards de recintos extremadamente compactas */
+    .auxiliary-main .row.g-4 {
+        gap: 0.5rem !important;
+    }
+    
+    .auxiliary-main .card-header {
+        padding: 0.4rem !important;
+    }
+    
+    .auxiliary-main .card-header .bg-gradient {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    .auxiliary-main .card-header .fs-3 {
+        font-size: 0.9rem !important;
+    }
+    
+    .auxiliary-main .card-title {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.1rem !important;
+    }
+    
+    .auxiliary-main .card-text.small {
+        font-size: 0.6rem !important;
+        line-height: 1 !important;
+    }
+    
+    /* Selectores extremadamente pequeños */
+    .auxiliary-main .form-select-sm {
+        font-size: 0.65rem !important;
+        padding: 0.05rem 0.1rem !important;
+        min-height: 28px !important;
+    }
+    
+    /* Labels extremadamente pequeños */
+    .auxiliary-main .form-label.text-info.small {
+        font-size: 0.55rem !important;
+        margin-bottom: 0.1rem !important;
+    }
+    
+    /* Botones extremadamente pequeños */
+    .auxiliary-main .btn-outline-warning,
+    .auxiliary-main .btn-warning {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.75rem !important;
+    }
+}
+
+/* ===== OPTIMIZACIONES GENERALES PARA MÓVILES ===== */
+@media (max-width: 576px) {
+    /* Mejorar interacciones táctiles */
+    .auxiliary-main .card:hover {
+        transform: none !important;
+    }
+    
+    .auxiliary-main .card:active {
+        transform: scale(0.98) !important;
+        transition: transform 0.1s ease !important;
+    }
+    
+    .auxiliary-main .btn:hover {
+        transform: none !important;
+    }
+    
+    .auxiliary-main .btn:active {
+        transform: scale(0.96) !important;
+    }
+    
+    /* Asegurar áreas de toque mínimas */
+    .auxiliary-main .form-select-sm {
+        min-height: 44px !important;
+    }
+    
+    .auxiliary-main .btn {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    /* Optimizar rendimiento en móviles */
+    .auxiliary-main * {
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    
+    /* Mejorar legibilidad */
+    .auxiliary-main body {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+}

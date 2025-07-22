@@ -1,0 +1,478 @@
+/**
+ * ESTILOS DEL SISTEMA DE DRAFT
+ * Componentes visuales para el juego con bots y draft
+ */
+
+/* ===== INDICADORES DE JUGADOR ACTIVO ===== */
+.jugador-activo-indicador {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.jugador-activo-card {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #22c55e;
+    border-radius: 15px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+.jugador-avatar {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(34, 197, 94, 0.2);
+    border-radius: 50%;
+}
+
+.jugador-nombre {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.jugador-estado {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* ===== PANEL DE JUGADORES ===== */
+.panel-jugadores {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    min-width: 200px;
+}
+
+.panel-jugadores h3 {
+    color: white;
+    font-size: 16px;
+    margin: 0 0 15px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.jugador-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    font-size: 12px;
+}
+
+.jugador-info.activo {
+    background: rgba(34, 197, 94, 0.3);
+    border: 1px solid #22c55e;
+    transform: scale(1.05);
+}
+
+.jugador-info .jugador-avatar {
+    font-size: 16px;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.jugador-info .jugador-nombre {
+    color: white;
+    font-weight: 500;
+    flex-grow: 1;
+    font-size: 11px;
+}
+
+.jugador-mano,
+.jugador-colocados {
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* ===== INDICADOR DE BOT PENSANDO ===== */
+.bot-pensando-indicador {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+    animation: fadeInScale 0.3s ease-out;
+}
+
+.bot-pensando-content {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #3b82f6;
+    border-radius: 15px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+.bot-pensando-content .bot-avatar {
+    font-size: 32px;
+    animation: bounce 1s infinite;
+}
+
+.bot-pensando-content .bot-nombre {
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* ===== MODAL DE RESULTADOS ===== */
+.modal-resultados {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    border: 3px solid #fbbf24;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+    color: #fbbf24;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ganador {
+    background: rgba(34, 197, 94, 0.2);
+    border: 2px solid #22c55e;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.ganador h3 {
+    color: #22c55e;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.ganador p {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+.puntuaciones h4 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.puntuacion-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.puntuacion-item.ganador {
+    background: rgba(251, 191, 36, 0.2);
+    border: 2px solid #fbbf24;
+    transform: scale(1.05);
+}
+
+.puntuacion-item .posicion {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fbbf24;
+    min-width: 30px;
+}
+
+.puntuacion-item .avatar {
+    font-size: 24px;
+}
+
+.puntuacion-item .nombre {
+    color: white;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.puntuacion-item .puntos {
+    color: #22c55e;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.acciones-finales {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.acciones-finales .btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.acciones-finales .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== ESTADOS DESHABILITADOS ===== */
+.panel-dinosaurios.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(50%);
+}
+
+.panel-dinosaurios.disabled::after {
+    content: '⏳ Esperando turno...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ===== EFECTOS DE TRANSICIÓN ===== */
+.tarjeta-dinosaurio-moderna {
+    transition: all 0.3s ease;
+}
+
+.tarjeta-dinosaurio-moderna.eliminando {
+    animation: fadeOutScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeOutScale {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .jugador-activo-indicador {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .jugador-activo-card {
+        padding: 10px 15px;
+        gap: 8px;
+    }
+    
+    .jugador-avatar {
+        font-size: 20px;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .jugador-nombre {
+        font-size: 14px;
+    }
+    
+    .panel-jugadores {
+        left: 10px;
+        top: auto;
+        bottom: 20px;
+        transform: none;
+        min-width: 180px;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .modal-content h2 {
+        font-size: 24px;
+    }
+    
+    .acciones-finales {
+        flex-direction: column;
+    }
+    
+    .acciones-finales .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .jugador-activo-card {
+        padding: 8px 12px;
+    }
+    
+    .jugador-nombre {
+        font-size: 12px;
+    }
+    
+    .panel-jugadores {
+        min-width: 160px;
+        padding: 15px;
+    }
+    
+    .jugador-info {
+        font-size: 10px;
+        gap: 6px;
+    }
+    
+    .bot-pensando-content {
+        padding: 15px 20px;
+        gap: 10px;
+    }
+    
+    .bot-pensando-content .bot-avatar {
+        font-size: 24px;
+    }
+    
+    .bot-pensando-content .bot-nombre {
+        font-size: 14px;
+    }
+}
+
+/* ===== EFECTOS ESPECIALES ===== */
+.jugador-activo-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #22c55e, #16a34a, #22c55e);
+    border-radius: 17px;
+    z-index: -1;
+    animation: borderGlow 2s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.puntuacion-item.ganador::before {
+    content: '👑';
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    font-size: 20px;
+    animation: crownFloat 2s ease-in-out infinite;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ===== TOOLTIPS PARA JUGADORES ===== */
+.jugador-info:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    white-space: nowrap;
+    z-index: 1000;
+    margin-left: 10px;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out 0.5s forwards;
+}

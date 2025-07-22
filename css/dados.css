@@ -1,0 +1,368 @@
+/**
+ * ESTILOS DEL SISTEMA DE DADOS
+ * Visualización y animaciones del dado de restricciones
+ */
+
+/* ===== CONTENEDOR DEL DADO ===== */
+.dado-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    margin: 10px 0;
+}
+
+.dado-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ===== DADO VISUAL ===== */
+.dado-visual {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.dado-visual:hover {
+    transform: scale(1.1);
+}
+
+.dado-cara {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dado-cara-activa {
+    border-color: #fbbf24;
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(251, 191, 36, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.dado-icono {
+    font-size: 28px;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.dado-texto {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* ===== ANIMACIÓN DE LANZAMIENTO ===== */
+.dado-visual.lanzando {
+    animation: lanzarDado 2s ease-in-out;
+}
+
+@keyframes lanzarDado {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(180deg) scale(1.2); }
+    50% { transform: rotate(360deg) scale(0.9); }
+    75% { transform: rotate(540deg) scale(1.1); }
+    100% { transform: rotate(720deg) scale(1); }
+}
+
+.dado-visual.lanzando .dado-cara {
+    animation: cambiarCaras 2s ease-in-out;
+}
+
+@keyframes cambiarCaras {
+    0%, 100% { 
+        background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #4b5563 100%);
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+    20% { 
+        background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+        border-color: #dc2626;
+    }
+    40% { 
+        background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+        border-color: #2563eb;
+    }
+    60% { 
+        background: linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #4ade80 100%);
+        border-color: #16a34a;
+    }
+    80% { 
+        background: linear-gradient(135deg, #ca8a04 0%, #eab308 50%, #facc15 100%);
+        border-color: #ca8a04;
+    }
+}
+
+/* ===== INFORMACIÓN DEL DADO ===== */
+.dado-info {
+    flex-grow: 1;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dado-info.info-visible {
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.restriccion-titulo {
+    color: #fbbf24;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.restriccion-descripcion {
+    color: #e5e7eb;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* ===== BOTÓN DEL DADO ===== */
+.dado-boton {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    white-space: nowrap;
+}
+
+.dado-boton:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.dado-boton:active {
+    transform: translateY(0);
+}
+
+.dado-boton:disabled {
+    background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ===== EFECTOS DE RESTRICCIÓN ===== */
+.restriccion-bosque {
+    background: linear-gradient(135deg, #166534 0%, #22c55e 100%) !important;
+    border-color: #16a34a !important;
+}
+
+.restriccion-pradera {
+    background: linear-gradient(135deg, #15803d 0%, #4ade80 100%) !important;
+    border-color: #22c55e !important;
+}
+
+.restriccion-zona-banos {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+    border-color: #2563eb !important;
+}
+
+.restriccion-zona-comedor {
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%) !important;
+    border-color: #f87171 !important;
+}
+
+.restriccion-recinto-vacio {
+    background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%) !important;
+    border-color: #9ca3af !important;
+}
+
+.restriccion-sin-trex {
+    background: linear-gradient(135deg, #7c2d12 0%, #ea580c 100%) !important;
+    border-color: #f97316 !important;
+}
+
+/* ===== INDICADORES VISUALES ===== */
+.dado-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(251, 191, 36, 0.3) 25%, 
+        transparent 50%, 
+        rgba(251, 191, 36, 0.3) 75%, 
+        transparent 100%);
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dado-container:hover::before {
+    opacity: 1;
+}
+
+/* ===== PARTÍCULAS DE EFECTO ===== */
+.dado-particulas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.particula {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fbbf24;
+    border-radius: 50%;
+    animation: particulaVolar 1s ease-out forwards;
+}
+
+@keyframes particulaVolar {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx, 0), var(--dy, 0)) scale(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .dado-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .dado-wrapper {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .dado-visual {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .dado-icono {
+        font-size: 20px;
+    }
+    
+    .dado-texto {
+        font-size: 8px;
+    }
+    
+    .restriccion-titulo {
+        font-size: 14px;
+    }
+    
+    .restriccion-descripcion {
+        font-size: 12px;
+    }
+    
+    .dado-boton {
+        padding: 10px 16px;
+        font-size: 12px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .dado-visual {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .dado-icono {
+        font-size: 16px;
+    }
+    
+    .dado-texto {
+        font-size: 7px;
+    }
+    
+    .restriccion-titulo {
+        font-size: 12px;
+    }
+    
+    .restriccion-descripcion {
+        font-size: 11px;
+    }
+}
+
+/* ===== ESTADOS ESPECIALES ===== */
+.dado-container.dado-activo {
+    border-color: #22c55e;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.dado-container.dado-inactivo {
+    opacity: 0.6;
+    filter: grayscale(50%);
+}
+
+/* ===== ANIMACIONES ADICIONALES ===== */
+.dado-brillo {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 30%;
+    height: 30%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: brillar 2s ease-in-out infinite;
+}
+
+@keyframes brillar {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+.dado-cara-activa .dado-brillo {
+    display: block;
+}
+
+.dado-cara .dado-brillo {
+    display: none;
+}

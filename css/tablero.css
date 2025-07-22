@@ -1,0 +1,479 @@
+/**
+ * ESTILOS DEL TABLERO DE DRAFTOSAURUS
+ * Visualización del mapa de juego y recintos
+ */
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.tablero-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* ===== TABLERO VISUAL ===== */
+.tablero-visual {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(45deg, #22c55e 0%, #16a34a 25%, #0ea5e9 50%, #0284c7 75%, #059669 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* ===== ZONAS DEL TABLERO ===== */
+.tablero-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 200px 1fr;
+    grid-template-areas: "bosque rio pradera";
+}
+
+.zona-bosque {
+    grid-area: bosque;
+    background: linear-gradient(135deg, #166534 0%, #15803d 50%, #22c55e 100%);
+    position: relative;
+    border-radius: 15px 0 0 15px;
+}
+
+.zona-rio {
+    grid-area: rio;
+    background: linear-gradient(180deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zona-pradera {
+    grid-area: pradera;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+    position: relative;
+    border-radius: 0 15px 15px 0;
+}
+
+.zona-titulo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===== RÍO ANIMADO ===== */
+.rio-visual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rio-flujo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            rgba(255, 255, 255, 0.1) 10px,
+            transparent 20px,
+            rgba(255, 255, 255, 0.05) 30px
+        );
+    animation: flujoRio 3s linear infinite;
+}
+
+@keyframes flujoRio {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(40px); }
+}
+
+/* ===== OVERLAY DE RECINTOS ===== */
+.recintos-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* ===== RECINTOS ===== */
+.recinto {
+    position: absolute;
+    width: 180px;
+    min-height: 120px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    pointer-events: all;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+
+.recinto:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.recinto-seleccionado {
+    border-color: #fbbf24 !important;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5) !important;
+    transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.recinto-permitido {
+    border-color: #22c55e !important;
+    background: rgba(34, 197, 94, 0.2) !important;
+}
+
+.recinto-prohibido {
+    border-color: #ef4444 !important;
+    background: rgba(239, 68, 68, 0.2) !important;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ===== HEADER DEL RECINTO ===== */
+.recinto-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.recinto-icono {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.recinto-nombre {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    flex-grow: 1;
+    line-height: 1.2;
+}
+
+.recinto-capacidad {
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.ocupacion-actual {
+    color: #22c55e;
+}
+
+/* ===== CONTENIDO DEL RECINTO ===== */
+.recinto-contenido {
+    padding: 8px;
+}
+
+.slots-dinosaurios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.slot-dinosaurio {
+    aspect-ratio: 1;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    min-height: 30px;
+}
+
+.slot-vacio {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.slot-ocupado {
+    border-color: #22c55e;
+    background: rgba(34, 197, 94, 0.2);
+}
+
+.dinosaurio-colocado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    width: 100%;
+}
+
+.dinosaurio-icono {
+    font-size: 16px;
+}
+
+.dinosaurio-nombre {
+    color: white;
+    font-size: 8px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+}
+
+.recinto-regla {
+    color: #94a3b8;
+    font-size: 10px;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* ===== ACCIONES DEL RECINTO ===== */
+.recinto-acciones {
+    padding: 0 8px 8px;
+}
+
+.boton-colocar {
+    width: 100%;
+    padding: 6px 8px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.boton-colocar:hover {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transform: translateY(-1px);
+}
+
+.boton-colocar:active {
+    transform: translateY(0);
+}
+
+/* ===== ESTADOS VISUALES DE RECINTOS ===== */
+.recinto-vacio {
+    opacity: 0.8;
+}
+
+.recinto-parcial {
+    border-color: rgba(251, 191, 36, 0.6);
+}
+
+.recinto-lleno {
+    border-color: rgba(239, 68, 68, 0.6);
+}
+
+.recinto-completo {
+    border-color: rgba(34, 197, 94, 0.8) !important;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+}
+
+.recinto-completo .recinto-header {
+    background: rgba(34, 197, 94, 0.3);
+}
+
+/* ===== ELEMENTOS DECORATIVOS ===== */
+.elementos-decorativos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.elemento-decorativo {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.6;
+    animation: flotarSuave 4s ease-in-out infinite;
+}
+
+.elemento-decorativo:nth-child(2n) {
+    animation-delay: -2s;
+}
+
+.elemento-decorativo:nth-child(3n) {
+    animation-delay: -1s;
+}
+
+@keyframes flotarSuave {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ===== CONTROLES DEL TABLERO ===== */
+.tablero-controles {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.tablero-boton {
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.tablero-boton:hover {
+    background: rgba(0, 0, 0, 0.9);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+/* ===== TOOLTIP DE RECINTO ===== */
+.recinto-tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    max-width: 250px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.tooltip-icono {
+    font-size: 16px;
+}
+
+.tooltip-regla {
+    color: #94a3b8;
+    margin-bottom: 6px;
+    font-size: 11px;
+}
+
+.tooltip-estado {
+    color: #fbbf24;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.tooltip-dinosaurios {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 6px;
+    font-size: 11px;
+}
+
+.tooltip-dino {
+    display: inline-block;
+    background: rgba(34, 197, 94, 0.3);
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin: 2px;
+    font-size: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .tablero-container {
+        padding: 10px;
+    }
+    
+    .tablero-visual {
+        height: 400px;
+    }
+    
+    .recinto {
+        width: 140px;
+        min-height: 100px;
+    }
+    
+    .recinto-nombre {
+        font-size: 10px;
+    }
+    
+    .slots-dinosaurios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tablero-fondo {
+        grid-template-columns: 1fr 120px 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .tablero-visual {
+        height: 300px;
+    }
+    
+    .recinto {
+        width: 120px;
+        min-height: 80px;
+    }
+    
+    .recinto-icono {
+        font-size: 16px;
+    }
+    
+    .recinto-nombre {
+        font-size: 9px;
+    }
+    
+    .slots-dinosaurios {
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+    }
+    
+    .tablero-controles {
+        gap: 5px;
+    }
+    
+    .tablero-boton {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}

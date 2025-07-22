@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Sistema Draftosaurus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/tablero.css">
+    <link rel="stylesheet" href="css/dados.css">
+    <link rel="stylesheet" href="css/juego-moderno.css">
+    <link rel="stylesheet" href="css/draft-system.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="text-center mb-4">🦕 Test Sistema Draftosaurus</h1>
+        
+        <!-- Información del Jugador (simulada) -->
+        <div class="informacion-juego" style="display: none;">
+            <p>Jugador: <strong>Test Player</strong></p>
+            <p>Ronda: <strong>1/2</strong></p>
+            <p>Turno: <strong>1/6</strong></p>
+        </div>
+
+        <!-- Contenedor del Tablero -->
+        <div class="test-section">
+            <h3>🗺️ Renderizador de Mapa</h3>
+            <div id="tablero-container-placeholder" style="height: 400px; border: 2px dashed #666;"></div>
+        </div>
+
+        <!-- Panel de Dinosaurios -->
+        <div class="test-section">
+            <h3>🦴 Panel de Dinosaurios</h3>
+            <div class="panel-dinosaurios">
+                <div class="panel-header">
+                    <h2>🦴 Dinosaurios Disponibles</h2>
+                    <div class="contador-mano">
+                        <span class="badge bg-primary">6 disponibles</span>
+                    </div>
+                </div>
+                <div class="tarjetas-dinosaurio-grid">
+                    <!-- Los dinosaurios se generarán aquí -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <div class="test-section">
+            <h3>🎮 Controles</h3>
+            <div class="panel-control">
+                <button type="button" id="boton-confirmar" class="btn btn-success btn-lg" disabled>
+                    <span class="me-2">🎯</span>
+                    Confirmar Colocación
+                </button>
+                <button type="button" id="boton-resetear" class="btn btn-outline-warning">
+                    <span class="me-2">🔄</span>
+                    Resetear Selección
+                </button>
+            </div>
+        </div>
+
+        <!-- Botones de Test -->
+        <div class="test-section">
+            <h3>🧪 Controles de Test</h3>
+            <div class="d-flex gap-3 flex-wrap">
+                <button class="btn btn-primary" onclick="testInicializarJuego()">
+                    🎮 Inicializar Juego
+                </button>
+                <button class="btn btn-secondary" onclick="testGenerarDinosaurios()">
+                    🦕 Generar Dinosaurios
+                </button>
+                <button class="btn btn-info" onclick="testLanzarDado()">
+                    🎲 Lanzar Dado
+                </button>
+                <button class="btn btn-warning" onclick="testSimularBot()">
+                    🤖 Simular Bot
+                </button>
+                <button class="btn btn-danger" onclick="testMostrarResultados()">
+                    🏆 Mostrar Resultados
+                </button>
+            </div>
+        </div>
+
+        <!-- Log de Eventos -->
+        <div class="test-section">
+            <h3>📋 Log de Eventos</h3>
+            <div id="log-eventos" style="background: #000; padding: 15px; border-radius: 5px; height: 200px; overflow-y: auto; font-family: monospace; font-size: 12px;">
+                <div style="color: #22c55e;">Sistema de test iniciado...</div>
+            </div>
+        </div>
+
+        <!-- Formularios ocultos -->
+        <form id="formulario-colocacion" style="display: none;">
+            <input type="hidden" name="id_dinosaurio" id="dinosaurio-seleccionado" value="">
+            <input type="hidden" name="id_recinto" id="recinto-seleccionado" value="">
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module">
+        import { GestorJuego } from './js/modules/gestor-juego.js';
+        
+        let gestorJuego = null;
+        
+        // Función para log
+        function log(mensaje, tipo = 'info') {
+            const logContainer = document.getElementById('log-eventos');
+            const timestamp = new Date().toLocaleTimeString();
+            const colores = {
+                info: '#3b82f6',
+                success: '#22c55e',
+                warning: '#f59e0b',
+                error: '#ef4444'
+            };
+            
+            const logEntry = document.createElement('div');
+            logEntry.style.color = colores[tipo] || '#ffffff';
+            logEntry.innerHTML = `[${timestamp}] ${mensaje}`;
+            
+            logContainer.appendChild(logEntry);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+        
+        // Funciones de test
+        window.testInicializarJuego = async function() {
+            try {
+                log('🎮 Inicializando sistema de juego...', 'info');
+                gestorJuego = new GestorJuego();
+                await gestorJuego.inicializar();
+                log('✅ Sistema de juego inicializado correctamente', 'success');
+                window.gestorJuego = gestorJuego; // Para debugging
+            } catch (error) {
+                log(`❌ Error inicializando juego: ${error.message}`, 'error');
+                console.error(error);
+            }
+        };
+        
+        window.testGenerarDinosaurios = function() {
+            log('🦕 Generando dinosaurios de prueba...', 'info');
+            
+            const dinosauriosPrueba = [
+                { id: 1, nombre: 'T-Rex Alpha', familia: 'T-Rex', tipo: 'carnivoro' },
+                { id: 2, nombre: 'Stego Beta', familia: 'Stegosaurus', tipo: 'herbivoro' },
+                { id: 3, nombre: 'Trice Gamma', familia: 'Triceratops', tipo: 'herbivoro' },
+                { id: 4, nombre: 'Raptor Delta', familia: 'Raptor', tipo: 'carnivoro' },
+                { id: 5, nombre: 'Bronto Epsilon', familia: 'Sauropodo', tipo: 'herbivoro' },
+                { id: 6, nombre: 'Allo Zeta', familia: 'Allosaurus', tipo: 'carnivoro' }
+            ];
+            
+            const contenedor = document.querySelector('.tarjetas-dinosaurio-grid');
+            contenedor.innerHTML = '';
+            
+            dinosauriosPrueba.forEach((dino, index) => {
+                if (gestorJuego) {
+                    const tarjeta = gestorJuego.crearTarjetaDinosaurio(dino, index);
+                    contenedor.appendChild(tarjeta);
+                }
+            });
+            
+            log(`✅ ${dinosauriosPrueba.length} dinosaurios generados`, 'success');
+        };
+        
+        window.testLanzarDado = function() {
+            if (gestorJuego && gestorJuego.gestorDados) {
+                log('🎲 Lanzando dado...', 'info');
+                gestorJuego.gestorDados.lanzarDado();
+                log('✅ Dado lanzado', 'success');
+            } else {
+                log('❌ Gestor de dados no disponible', 'error');
+            }
+        };
+        
+        window.testSimularBot = function() {
+            log('🤖 Simulando acción de bot...', 'info');
+            
+            const botSimulado = {
+                id: 2,
+                nombre: 'Dr. Paleonto',
+                avatar: '🤖',
+                esBot: true
+            };
+            
+            if (gestorJuego) {
+                gestorJuego.mostrarIndicadorBotPensando(botSimulado);
+                
+                setTimeout(() => {
+                    gestorJuego.mostrarNotificacion(
+                        `${botSimulado.nombre} coloca T-Rex en Bosque de lo Mismo`,
+                        'info'
+                    );
+                    log(`✅ Bot ${botSimulado.nombre} realizó su jugada`, 'success');
+                }, 2000);
+            }
+        };
+        
+        window.testMostrarResultados = function() {
+            log('🏆 Mostrando resultados de prueba...', 'info');
+            
+            const puntuacionesPrueba = [
+                { jugador: { nombre: 'Test Player', avatar: '👤' }, puntuacion: 45 },
+                { jugador: { nombre: 'Dr. Paleonto', avatar: '🤖' }, puntuacion: 42 },
+                { jugador: { nombre: 'Rex Hunter', avatar: '🦖' }, puntuacion: 38 },
+                { jugador: { nombre: 'Dino Master', avatar: '🧠' }, puntuacion: 35 }
+            ];
+            
+            if (gestorJuego) {
+                gestorJuego.mostrarResultadosFinales(puntuacionesPrueba, puntuacionesPrueba[0]);
+                log('✅ Resultados mostrados', 'success');
+            }
+        };
+        
+        // Escuchar eventos del sistema
+        document.addEventListener('eventoJuegoDraft', (e) => {
+            log(`📢 Evento Draft: ${e.detail.tipo}`, 'info');
+        });
+        
+        document.addEventListener('recintoClickeado', (e) => {
+            log(`🎯 Recinto clickeado: ${e.detail.recinto.nombre}`, 'info');
+        });
+        
+        // Auto-inicializar después de un momento
+        setTimeout(() => {
+            log('🔄 Auto-inicializando sistema de test...', 'warning');
+            testInicializarJuego();
+        }, 1000);
+    </script>
+</body>
+</html>

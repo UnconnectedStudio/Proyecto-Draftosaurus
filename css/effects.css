@@ -1,0 +1,224 @@
+/* ===================================
+   EFFECTS - Efectos especiales y animaciones avanzadas
+   =================================== */
+
+/* ===== EFECTOS DE PARTÍCULAS Y FONDO ===== */
+.particle-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* ===== EFECTOS DE HOVER MEJORADOS ===== */
+.btn-play::after {
+    content: '🦕';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    opacity: 0;
+    transition: all var(--transition-normal);
+}
+
+.btn-play:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.2);
+    animation: bounce 1s infinite;
+}
+
+/* ===== EFECTOS DE CARGA ===== */
+.loading-dots {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loading-dots div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loading-dots div:nth-child(1) {
+    left: 8px;
+    animation: loading-dots1 0.6s infinite;
+}
+
+.loading-dots div:nth-child(2) {
+    left: 8px;
+    animation: loading-dots2 0.6s infinite;
+}
+
+.loading-dots div:nth-child(3) {
+    left: 32px;
+    animation: loading-dots2 0.6s infinite;
+}
+
+.loading-dots div:nth-child(4) {
+    left: 56px;
+    animation: loading-dots3 0.6s infinite;
+}
+
+@keyframes loading-dots1 {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+@keyframes loading-dots3 {
+    0% { transform: scale(1); }
+    100% { transform: scale(0); }
+}
+
+@keyframes loading-dots2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(24px, 0); }
+}
+
+/* ===== EFECTOS DE TEXTO ANIMADO SUAVE ===== */
+.animated-title {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ===== EFECTOS DE GLASSMORPHISM AVANZADO ===== */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glass-effect-dark {
+    background: rgba(44, 62, 80, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(255, 107, 53, 0.1),
+        inset 0 1px 0 rgba(255, 107, 53, 0.1);
+}
+
+/* ===== EFECTOS DE HOVER PARA TARJETAS ===== */
+.feature-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-secondary);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    border-radius: inherit;
+    z-index: 1;
+}
+
+.feature-card:hover::after {
+    opacity: 0.05;
+}
+
+.feature-card .card-body {
+    position: relative;
+    z-index: 2;
+}
+
+/* Efectos de pulsación removidos */
+
+/* ===== EFECTOS DE ENTRADA ESCALONADA ===== */
+.stagger-animation {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: stagger-in 0.6s ease forwards;
+}
+
+.stagger-animation:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes stagger-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efectos de brillo removidos */
+
+/* ===== EFECTOS DE ONDAS ===== */
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ===== EFECTOS PARA DISPOSITIVOS MÓVILES ===== */
+@media (max-width: 768px) {
+    /* Reducir efectos complejos en móviles */
+    .dynamic-glow::before,
+    .particle-effect {
+        display: none;
+    }
+    
+    /* Simplificar animaciones */
+    .animated-title {
+        animation-duration: 2s;
+    }
+    
+    .pulse-effect {
+        animation-duration: 3s;
+    }
+}
+
+/* ===== EFECTOS DE ACCESIBILIDAD ===== */
+@media (prefers-reduced-motion: reduce) {
+    .animated-title,
+    .pulse-effect,
+    .dynamic-glow::before,
+    .stagger-animation {
+        animation: none !important;
+    }
+    
+    .stagger-animation {
+        opacity: 1;
+        transform: none;
+    }
+}
