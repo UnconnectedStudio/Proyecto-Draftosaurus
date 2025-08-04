@@ -21,7 +21,7 @@ class AplicacionDraftosaurus {
      */
     async inicializar() {
         try {
-            console.log('🦕 Inicializando Draftosaurus App...');
+            console.log('Inicializando Draftosaurus App...');
 
             // Inicializar gestores
             this.gestores.ui = new GestorUI();
@@ -39,10 +39,10 @@ class AplicacionDraftosaurus {
             this.configurarEventosGlobales();
 
             this.estaInicializada = true;
-            console.log('✅ Draftosaurus App inicializada correctamente');
+            console.log('Draftosaurus App inicializada correctamente');
 
         } catch (error) {
-            console.error('❌ Error inicializando la aplicación:', error);
+            console.error('Error inicializando la aplicación:', error);
             this.manejarErrorInicializacion(error);
         }
     }
@@ -64,9 +64,9 @@ class AplicacionDraftosaurus {
         const promesasInicializacion = Object.entries(this.gestores).map(async ([nombre, gestor]) => {
             try {
                 await gestor.inicializar();
-                console.log(`✅ ${nombre} gestor inicializado`);
+                console.log(`${nombre} gestor inicializado`);
             } catch (error) {
-                console.error(`❌ Error inicializando ${nombre} gestor:`, error);
+                console.error(`Error inicializando ${nombre} gestor:`, error);
                 throw error;
             }
         });
@@ -103,7 +103,7 @@ class AplicacionDraftosaurus {
      * Ejecuta cuando el DOM está listo
      */
     alDOMListar() {
-        console.log('📄 DOM listo');
+        console.log('DOM listo');
 
         // Inicializar componentes Bootstrap si están disponibles
         this.inicializarComponentesBootstrap();
@@ -128,7 +128,7 @@ class AplicacionDraftosaurus {
                 return new bootstrap.Tooltip(elementoActivadorTooltip);
             });
 
-            console.log('🅱️ Componentes Bootstrap inicializados');
+            console.log('Componentes Bootstrap inicializados');
         }
     }
 
@@ -180,10 +180,10 @@ class AplicacionDraftosaurus {
      */
     manejarCambioVisibilidad() {
         if (document.hidden) {
-            console.log('📱 Aplicación en segundo plano');
+            console.log('Aplicación en segundo plano');
             this.gestores.efectos?.pausarAnimaciones();
         } else {
-            console.log('📱 Aplicación en primer plano');
+            console.log('Aplicación en primer plano');
             this.gestores.efectos?.reanudarAnimaciones();
         }
     }
@@ -192,7 +192,7 @@ class AplicacionDraftosaurus {
      * Maneja errores globales
      */
     manejarErrorGlobal(evento) {
-        console.error('❌ Error global:', evento.error);
+        console.error('Error global:', evento.error);
         this.gestores.ui?.mostrarMensajeError('Ha ocurrido un error inesperado');
     }
 
@@ -200,7 +200,7 @@ class AplicacionDraftosaurus {
      * Maneja promesas rechazadas
      */
     manejarPromesaRechazada(evento) {
-        console.error('❌ Promesa rechazada:', evento.reason);
+        console.error('Promesa rechazada:', evento.reason);
         this.gestores.ui?.mostrarMensajeError('Error de conexión o procesamiento');
     }
 
@@ -234,7 +234,7 @@ class AplicacionDraftosaurus {
      * Limpia recursos al cerrar la aplicación
      */
     destruir() {
-        console.log('🧹 Limpiando recursos de la aplicación...');
+        console.log('Limpiando recursos de la aplicación...');
 
         // Limpiar gestores
         Object.values(this.gestores).forEach(gestor => {
@@ -249,7 +249,7 @@ class AplicacionDraftosaurus {
         }
 
         this.estaInicializada = false;
-        console.log('✅ Recursos limpiados');
+        console.log('Recursos limpiados');
     }
 }
 

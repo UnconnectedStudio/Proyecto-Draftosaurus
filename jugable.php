@@ -39,7 +39,7 @@ if (isset($_SESSION['id_partida'])) {
                 </div>
                 <div class="col text-center">
                     <h1 class="display-5 fw-bold text-success mb-0">
-                        <span class="fs-1 me-2">🦕</span>
+                        <span class="fs-1 me-2">Dino</span>
                         Modo Jugable
                         <small class="d-block fs-6 text-info mt-1">Draftosaurus Summer</small>
                     </h1>
@@ -77,28 +77,28 @@ if (isset($_SESSION['id_partida'])) {
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-3 col-6">
                                         <div class="bg-success bg-opacity-25 rounded-3 p-3 h-100">
-                                            <div class="fs-2 mb-2">🎲</div>
+                                            <div class="fs-2 mb-2">Rondas</div>
                                             <div class="fw-bold text-success">2 Rondas</div>
                                             <small class="text-light">6 turnos cada una</small>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-6">
                                         <div class="bg-success bg-opacity-25 rounded-3 p-3 h-100">
-                                            <div class="fs-2 mb-2">🦕</div>
+                                            <div class="fs-2 mb-2">Especies</div>
                                             <div class="fw-bold text-success">12 Especies</div>
                                             <small class="text-light">Diferentes tipos</small>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-6">
                                         <div class="bg-success bg-opacity-25 rounded-3 p-3 h-100">
-                                            <div class="fs-2 mb-2">🏞️</div>
+                                            <div class="fs-2 mb-2">Recintos</div>
                                             <div class="fw-bold text-success">7 Recintos</div>
                                             <small class="text-light">Reglas únicas</small>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-6">
                                         <div class="bg-success bg-opacity-25 rounded-3 p-3 h-100">
-                                            <div class="fs-2 mb-2">🏆</div>
+                                            <div class="fs-2 mb-2">Puntos</div>
                                             <div class="fw-bold text-success">Puntuación</div>
                                             <small class="text-light">Automática</small>
                                         </div>
@@ -117,7 +117,7 @@ if (isset($_SESSION['id_partida'])) {
                         <div class="card bg-dark bg-opacity-75 border-success border-2 shadow-lg">
                             <div class="card-header bg-transparent border-bottom border-success text-center py-3">
                                 <h3 class="card-title text-success fw-bold mb-0">
-                                    <span class="fs-2 me-2">🎮</span>
+                                    <span class="fs-2 me-2">Juego</span>
                                     Nueva Partida
                                 </h3>
                             </div>
@@ -125,7 +125,7 @@ if (isset($_SESSION['id_partida'])) {
                                 <form method="POST" action="nueva_partida.php" id="form-nueva-partida">
                                     <div class="mb-4">
                                         <label for="nombre" class="form-label text-light fw-semibold fs-5">
-                                            <span class="me-2">👤</span>
+                                            <span class="me-2">Jugador</span>
                                             Nombre del Jugador
                                         </label>
                                         <input type="text" 
@@ -140,13 +140,13 @@ if (isset($_SESSION['id_partida'])) {
                                     
                                     <div class="d-grid gap-3">
                                         <button type="submit" class="btn btn-success btn-lg py-3 fw-bold">
-                                            <span class="fs-4 me-2">🚀</span>
+                                            <span class="fs-4 me-2">Iniciar</span>
                                             COMENZAR PARTIDA
                                         </button>
                                         
                                         <div class="text-center">
                                             <small class="text-light">
-                                                <span class="me-2">⏱️</span>
+                                                <span class="me-2">Tiempo:</span>
                                                 Duración estimada: 10-15 minutos
                                             </small>
                                         </div>
@@ -170,7 +170,7 @@ if (isset($_SESSION['id_partida'])) {
                                         data-bs-target="#instructionsCollapse" 
                                         aria-expanded="false" 
                                         aria-controls="instructionsCollapse">
-                                    <span class="fs-3">📖</span>
+                                    <span class="fs-3">Manual</span>
                                     <span>¿Cómo se juega?</span>
                                     <span class="ms-auto">▼</span>
                                 </button>
@@ -181,7 +181,7 @@ if (isset($_SESSION['id_partida'])) {
                                     <div class="row g-4">
                                         <div class="col-md-6">
                                             <h5 class="text-info fw-bold mb-3">
-                                                <span class="me-2">🎯</span>
+                                                <span class="me-2">Meta:</span>
                                                 Objetivo
                                             </h5>
                                             <p class="text-light">
@@ -193,7 +193,7 @@ if (isset($_SESSION['id_partida'])) {
                                         
                                         <div class="col-md-6">
                                             <h5 class="text-info fw-bold mb-3">
-                                                <span class="me-2">🔄</span>
+                                                <span class="me-2">Juego:</span>
                                                 Mecánica
                                             </h5>
                                             <p class="text-light">
@@ -205,7 +205,7 @@ if (isset($_SESSION['id_partida'])) {
                                         
                                         <div class="col-md-6">
                                             <h5 class="text-info fw-bold mb-3">
-                                                <span class="me-2">🎲</span>
+                                                <span class="me-2">Reglas:</span>
                                                 Restricciones
                                             </h5>
                                             <p class="text-light">
@@ -217,7 +217,7 @@ if (isset($_SESSION['id_partida'])) {
                                         
                                         <div class="col-md-6">
                                             <h5 class="text-info fw-bold mb-3">
-                                                <span class="me-2">🏆</span>
+                                                <span class="me-2">Puntos:</span>
                                                 Puntuación
                                             </h5>
                                             <p class="text-light">
@@ -240,7 +240,7 @@ if (isset($_SESSION['id_partida'])) {
     <footer class="bg-dark bg-opacity-75 border-top border-success border-2 py-4 text-center">
         <div class="container">
             <p class="text-light mb-0 d-flex align-items-center justify-content-center gap-3 flex-wrap">
-                <span class="fs-4">🦕</span>
+                <span class="fs-4">Dino</span>
                 <span class="fw-semibold">Draftosaurus - Modo Jugable</span>
                 <span class="badge bg-success rounded-pill px-3 py-1">v0.2</span>
             </p>

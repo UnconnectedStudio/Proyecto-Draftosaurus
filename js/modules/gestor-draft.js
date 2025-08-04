@@ -23,7 +23,7 @@ export class GestorDraft {
      * Inicializa el sistema de draft
      */
     inicializarDraft(jugadorHumano, bots) {
-        console.log('🎲 Inicializando sistema de draft...');
+        console.log('Inicializando sistema de draft...');
         
         // Configurar jugadores
         this.jugadores = [
@@ -31,7 +31,7 @@ export class GestorDraft {
                 id: 1,
                 nombre: jugadorHumano.nombre,
                 esBot: false,
-                avatar: '👤',
+                avatar: 'Jugador',
                 tablero: this.inicializarTablero(),
                 puntuacion: 0
             },
@@ -44,7 +44,7 @@ export class GestorDraft {
         });
 
         this.estadoJuego = 'jugando';
-        console.log('✅ Sistema de draft inicializado con', this.jugadores.length, 'jugadores');
+        console.log('Sistema de draft inicializado con', this.jugadores.length, 'jugadores');
         
         // Comenzar primera ronda
         this.comenzarNuevaRonda();
@@ -69,12 +69,12 @@ export class GestorDraft {
      * Comienza una nueva ronda
      */
     async comenzarNuevaRonda() {
-        console.log(`🎯 Comenzando Ronda ${this.rondaActual}`);
+        console.log(`Comenzando Ronda ${this.rondaActual}`);
         
         // Cambiar dirección de draft en ronda 2
         if (this.rondaActual === 2) {
             this.direccionDraft = -1;
-            console.log('🔄 Dirección de draft cambiada a antihorario');
+            console.log('Dirección de draft cambiada a antihorario');
         }
 
         // Generar nuevas manos para todos los jugadores
@@ -110,7 +110,7 @@ export class GestorDraft {
      * Genera manos de 6 dinosaurios para todos los jugadores
      */
     async generarManosDinosaurios() {
-        console.log('🦕 Generando manos de dinosaurios...');
+        console.log('Generando manos de dinosaurios...');
         
         try {
             // Obtener dinosaurios disponibles del servidor
@@ -135,11 +135,11 @@ export class GestorDraft {
             this.jugadores.forEach((jugador, index) => {
                 const mano = data.manos[index] || [];
                 this.manosPorJugador.set(jugador.id, mano);
-                console.log(`🦴 ${jugador.nombre} recibe ${mano.length} dinosaurios`);
+                console.log(`${jugador.nombre} recibe ${mano.length} dinosaurios`);
             });
 
         } catch (error) {
-            console.error('❌ Error generando manos:', error);
+            console.error('Error generando manos:', error);
             // Fallback: generar manos localmente
             this.generarManosLocalmente();
         }
@@ -149,7 +149,7 @@ export class GestorDraft {
      * Genera manos localmente como fallback
      */
     generarManosLocalmente() {
-        console.log('🔄 Generando manos localmente (fallback)');
+        console.log('Generando manos localmente (fallback)');
         
         const familiasDinosaurios = [
             'T-Rex', 'Stegosaurus', 'Triceratops', 'Raptor', 
@@ -186,7 +186,7 @@ export class GestorDraft {
      */
     async lanzarDadoTurno() {
         const jugadorDado = this.jugadores.find(j => j.id === this.jugadorConDado);
-        console.log(`🎲 ${jugadorDado.nombre} lanza el dado`);
+        console.log(`${jugadorDado.nombre} lanza el dado`);
 
         // Generar restricción aleatoria
         const restricciones = [
@@ -194,25 +194,25 @@ export class GestorDraft {
                 codigo: 'BOSQUE',
                 nombre: 'Bosque',
                 descripcion: 'Solo se puede colocar en recintos del bosque',
-                icono: '🌲'
+                icono: 'Bosque'
             },
             {
                 codigo: 'PRADERA',
                 nombre: 'Pradera',
                 descripcion: 'Solo se puede colocar en recintos de pradera',
-                icono: '🌿'
+                icono: 'Pradera'
             },
             {
                 codigo: 'RECINTO_VACIO',
                 nombre: 'Recinto Vacío',
                 descripcion: 'Solo en recintos que no tengan dinosaurios',
-                icono: '⭕'
+                icono: 'Vacio'
             },
             {
                 codigo: 'SIN_TREX',
                 nombre: 'Sin T-Rex',
                 descripcion: 'Solo en recintos que no tengan T-Rex',
-                icono: '🚫'
+                icono: 'Sin T-Rex'
             }
         ];
 
@@ -233,7 +233,7 @@ export class GestorDraft {
      */
     async procesarSeleccionHumano(dinosaurioSeleccionado, recintoSeleccionado) {
         if (this.jugadorActivo !== 1) {
-            console.warn('❌ No es el turno del jugador humano');
+            console.warn('No es el turno del jugador humano');
             return false;
         }
 
@@ -243,13 +243,13 @@ export class GestorDraft {
         // Verificar que el dinosaurio está en la mano
         const dinosaurio = manoActual.find(d => d.id === dinosaurioSeleccionado);
         if (!dinosaurio) {
-            console.warn('❌ Dinosaurio no encontrado en la mano');
+            console.warn('Dinosaurio no encontrado en la mano');
             return false;
         }
 
         // Validar colocación
         if (!this.validarColocacion(jugador, dinosaurio, recintoSeleccionado)) {
-            console.warn('❌ Colocación no válida');
+            console.warn('Colocación no válida');
             return false;
         }
 
@@ -260,7 +260,7 @@ export class GestorDraft {
         const nuevaMano = manoActual.filter(d => d.id !== dinosaurioSeleccionado);
         this.manosPorJugador.set(1, nuevaMano);
 
-        console.log(`✅ ${jugador.nombre} coloca ${dinosaurio.nombre} en recinto ${recintoSeleccionado}`);
+        console.log(`${jugador.nombre} coloca ${dinosaurio.nombre} en recinto ${recintoSeleccionado}`);
 
         // Notificar colocación
         this.notificarEventoJuego('dinosaurioColocado', {
@@ -280,18 +280,18 @@ export class GestorDraft {
     async procesarTurnoBot() {
         const jugador = this.jugadores.find(j => j.id === this.jugadorActivo);
         if (!jugador || !jugador.esBot) {
-            console.warn('❌ Jugador activo no es un bot');
+            console.warn('Jugador activo no es un bot');
             return;
         }
 
         const manoActual = this.manosPorJugador.get(this.jugadorActivo);
         if (!manoActual || manoActual.length === 0) {
-            console.warn('❌ Bot no tiene dinosaurios en la mano');
+            console.warn('Bot no tiene dinosaurios en la mano');
             await this.avanzarTurno();
             return;
         }
 
-        console.log(`🤖 Procesando turno de ${jugador.nombre}...`);
+        console.log(`Procesando turno de ${jugador.nombre}...`);
 
         // Notificar que el bot está pensando
         this.notificarEventoJuego('botPensando', {
@@ -309,7 +309,7 @@ export class GestorDraft {
             );
 
             if (!seleccion) {
-                console.warn('❌ Bot no pudo hacer selección');
+                console.warn('Bot no pudo hacer selección');
                 await this.avanzarTurno();
                 return;
             }
@@ -335,7 +335,7 @@ export class GestorDraft {
                 });
 
             } else {
-                console.warn('❌ Colocación del bot no válida, usando río como fallback');
+                console.warn('Colocación del bot no válida, usando río como fallback');
                 
                 // Fallback: colocar en el río
                 jugador.tablero[7].push(seleccion.dinosaurio);
@@ -344,7 +344,7 @@ export class GestorDraft {
             }
 
         } catch (error) {
-            console.error('❌ Error procesando turno del bot:', error);
+            console.error('Error procesando turno del bot:', error);
         }
 
         // Continuar con el siguiente turno
@@ -398,7 +398,7 @@ export class GestorDraft {
         // Actualizar todas las manos simultáneamente
         this.manosPorJugador = nuevasManos;
 
-        console.log('🔄 Manos pasadas al siguiente jugador');
+        console.log('Manos pasadas al siguiente jugador');
     }
 
     /**
@@ -430,7 +430,7 @@ export class GestorDraft {
      * Finaliza el turno actual
      */
     async finalizarTurno() {
-        console.log(`✅ Turno ${this.turnoActual} completado`);
+        console.log(`Turno ${this.turnoActual} completado`);
         
         this.turnoActual++;
         
@@ -465,7 +465,7 @@ export class GestorDraft {
      * Finaliza la ronda actual
      */
     async finalizarRonda() {
-        console.log(`🏁 Ronda ${this.rondaActual} completada`);
+        console.log(`Ronda ${this.rondaActual} completada`);
         
         this.notificarEventoJuego('rondaCompletada', {
             ronda: this.rondaActual
@@ -487,7 +487,7 @@ export class GestorDraft {
      * Finaliza el juego y calcula puntuaciones
      */
     async finalizarJuego() {
-        console.log('🏆 Juego completado, calculando puntuaciones...');
+        console.log('Juego completado, calculando puntuaciones...');
         
         this.estadoJuego = 'completado';
         
@@ -518,7 +518,7 @@ export class GestorDraft {
             ganador: puntuaciones[0]
         });
 
-        console.log('🎉 Resultados finales:', puntuaciones);
+        console.log('Resultados finales:', puntuaciones);
     }
 
     /**
@@ -681,7 +681,7 @@ export class GestorDraft {
         });
         
         document.dispatchEvent(evento);
-        console.log(`📢 Evento: ${tipoEvento}`, datos);
+        console.log(`Evento: ${tipoEvento}`, datos);
     }
 
     /**
@@ -721,6 +721,6 @@ export class GestorDraft {
         this.jugadores = [];
         this.manosPorJugador.clear();
         this.estadoJuego = 'destruido';
-        console.log('🧹 Gestor de Draft destruido');
+        console.log('Gestor de Draft destruido');
     }
 }

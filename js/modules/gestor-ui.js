@@ -20,9 +20,9 @@ export class GestorUI {
             this.cachearElementos();
             this.configurarEstadoInicial();
             this.estaInicializado = true;
-            console.log('🎨 Gestor UI inicializado');
+            console.log('Gestor UI inicializado');
         } catch (error) {
-            console.error('❌ Error inicializando Gestor UI:', error);
+            console.error('Error inicializando Gestor UI:', error);
             throw error;
         }
     }
@@ -427,6 +427,6 @@ export class GestorUI {
         this.elementos.pantallaOpciones?.classList.add(CONFIGURACION.CLASES.OCULTO);
         this.reiniciarTarjetasOpcion();
         
-        console.log('🧹 Gestor UI limpiado');
+        console.log('Gestor UI limpiado');
     }
 }

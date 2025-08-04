@@ -12,42 +12,42 @@ export class GestorDados {
                 codigo: 'BOSQUE',
                 nombre: 'Bosque',
                 descripcion: 'Solo se puede colocar en recintos del bosque (lado izquierdo)',
-                icono: '🌲',
+                icono: 'Bosque',
                 color: '#2d5016'
             },
             {
                 codigo: 'PRADERA',
                 nombre: 'Pradera', 
                 descripcion: 'Solo se puede colocar en recintos de pradera (lado derecho)',
-                icono: '🌿',
+                icono: 'Pradera',
                 color: '#4a7c59'
             },
             {
                 codigo: 'ZONA_BANOS',
                 nombre: 'Zona de Baños',
                 descripcion: 'Solo en recintos cerca de la zona de baños',
-                icono: '🚻',
+                icono: 'Baños',
                 color: '#1e40af'
             },
             {
                 codigo: 'ZONA_COMEDOR',
                 nombre: 'Zona de Comedor',
                 descripcion: 'Solo en recintos cerca de la zona de comedor',
-                icono: '🍽️',
+                icono: 'Comedor',
                 color: '#dc2626'
             },
             {
                 codigo: 'RECINTO_VACIO',
                 nombre: 'Recinto Vacío',
                 descripcion: 'Solo en recintos que no tengan ningún dinosaurio',
-                icono: '⭕',
+                icono: 'Vacio',
                 color: '#6b7280'
             },
             {
                 codigo: 'SIN_TREX',
                 nombre: 'Sin T-Rex',
                 descripcion: 'Solo en recintos que no tengan un T-Rex',
-                icono: '🚫',
+                icono: 'Sin T-Rex',
                 color: '#7c2d12'
             }
         ];
@@ -59,7 +59,7 @@ export class GestorDados {
     inicializar() {
         this.crearElementoDado();
         this.configurarEventos();
-        console.log('🎲 Gestor de Dados inicializado');
+        console.log('Gestor de Dados inicializado');
     }
 
     /**
@@ -83,7 +83,7 @@ export class GestorDados {
             <div class="dado-wrapper">
                 <div class="dado-visual" id="dado-visual">
                     <div class="dado-cara dado-cara-activa">
-                        <div class="dado-icono">🎲</div>
+                        <div class="dado-icono">Dado</div>
                         <div class="dado-texto">Lanzar Dado</div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ export class GestorDados {
                     <div class="restriccion-descripcion"></div>
                 </div>
                 <button class="dado-boton" id="lanzar-dado" type="button">
-                    🎲 Lanzar Dado
+                    Lanzar Dado
                 </button>
             </div>
         `;
@@ -145,7 +145,7 @@ export class GestorDados {
         // Finalizar animación
         this.finalizarAnimacionLanzamiento();
 
-        console.log('🎲 Dado lanzado:', restriccionAleatoria.nombre);
+        console.log('Dado lanzado:', restriccionAleatoria.nombre);
     }
 
     /**
@@ -154,7 +154,7 @@ export class GestorDados {
     iniciarAnimacionLanzamiento() {
         this.dadoElement.classList.add('lanzando');
         this.botonElement.disabled = true;
-        this.botonElement.textContent = '🎲 Lanzando...';
+        this.botonElement.textContent = 'Lanzando...';
 
         // Animación de rotación rápida
         let rotaciones = 0;
@@ -179,7 +179,7 @@ export class GestorDados {
     finalizarAnimacionLanzamiento() {
         this.dadoElement.classList.remove('lanzando');
         this.botonElement.disabled = false;
-        this.botonElement.textContent = '🎲 Nuevo Lanzamiento';
+        this.botonElement.textContent = 'Nuevo Lanzamiento';
         
         // Mostrar información de la restricción
         this.mostrarInfo();
@@ -346,7 +346,7 @@ export class GestorDados {
         const icono = cara.querySelector('.dado-icono');
         const texto = cara.querySelector('.dado-texto');
 
-        icono.textContent = '🎲';
+        icono.textContent = 'Dado';
         texto.textContent = 'Lanzar Dado';
         cara.style.backgroundColor = '';
         cara.style.borderColor = '';
@@ -356,7 +356,7 @@ export class GestorDados {
             recinto.classList.remove('recinto-permitido', 'recinto-prohibido');
         });
 
-        this.botonElement.textContent = '🎲 Lanzar Dado';
+        this.botonElement.textContent = 'Lanzar Dado';
     }
 
     /**
@@ -379,6 +379,6 @@ export class GestorDados {
             contenedor.remove();
         }
 
-        console.log('🧹 Gestor de Dados destruido');
+        console.log('Gestor de Dados destruido');
     }
 }

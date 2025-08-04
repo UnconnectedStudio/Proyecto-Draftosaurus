@@ -44,7 +44,7 @@ $recintosAuxiliar = [
                 </div>
                 <div class="col text-center">
                     <h1 class="display-5 fw-bold text-warning mb-0">
-                        <span class="fs-1 me-2">🧮</span>
+                        <span class="fs-1 me-2">Calc</span>
                         Calculadora de Puntos
                         <small class="d-block fs-6 text-info mt-1">Modo Auxiliar</small>
                     </h1>
@@ -69,7 +69,7 @@ $recintosAuxiliar = [
                         <div class="card bg-dark bg-opacity-75 border-info border-2 shadow-lg">
                             <div class="card-body text-center py-4">
                                 <p class="card-text fs-5 text-light mb-0 d-flex align-items-center justify-content-center flex-wrap gap-3">
-                                    <span class="fs-2">🦕</span>
+                                    <span class="fs-2">Dino</span>
                                     <span>Configura tus recintos seleccionando dinosaurios y descubre cuántos puntos obtendrías en una partida real.</span>
                                 </p>
                             </div>
@@ -89,8 +89,8 @@ $recintosAuxiliar = [
                                     <div class="bg-gradient bg-warning rounded-3 p-2 flex-shrink-0" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
                                         <span class="fs-3">
                                             <?php 
-                                            $iconos = ['🌲', '🌿', '👥', '🌳', '👑', '🏝️', '🌊'];
-                                            echo $iconos[$index] ?? '🦴';
+                                            $iconos = ['Bosque', 'Pradera', 'Parejas', 'Trio', 'Rey', 'Isla', 'Rio'];
+                                            echo $iconos[$index] ?? 'Recinto';
                                             ?>
                                         </span>
                                     </div>
@@ -122,12 +122,12 @@ $recintosAuxiliar = [
                                                     <select name="recinto_<?php echo $recinto['id']; ?>[]" 
                                                             class="form-select form-select-sm bg-dark text-light border-info" 
                                                             data-slot="<?php echo $posicion; ?>">
-                                                        <option value="">🦴 Vacío</option>
+                                                        <option value="">Vacío</option>
                                                         <?php foreach ($dinosaurios as $dinosaurio): ?>
                                                             <option value="<?php echo $dinosaurio['id']; ?>" 
                                                                     data-tipo="<?php echo htmlspecialchars($dinosaurio['tipo']); ?>"
                                                                     data-familia="<?php echo htmlspecialchars($dinosaurio['familia']); ?>">
-                                                                🦕 <?php echo htmlspecialchars($dinosaurio['nombre']); ?>
+                                                                <?php echo htmlspecialchars($dinosaurio['nombre']); ?>
                                                             </option>
                                                         <?php endforeach; ?>
                                                     </select>
@@ -149,11 +149,11 @@ $recintosAuxiliar = [
                 <section class="mt-5 py-4 border-top border-warning bg-dark bg-opacity-50 rounded-3">
                     <div class="d-flex justify-content-center gap-4 flex-wrap">
                         <button type="button" class="btn btn-outline-warning btn-lg px-4 py-3 rounded-pill" onclick="resetearFormulario()">
-                            <span class="me-2 fs-5">🔄</span>
+                            <span class="me-2 fs-5">Reset</span>
                             Limpiar Todo
                         </button>
                         <button type="submit" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold text-dark">
-                            <span class="me-2 fs-5">🧮</span>
+                            <span class="me-2 fs-5">Calc</span>
                             CALCULAR PUNTOS
                         </button>
                     </div>
@@ -171,7 +171,7 @@ $recintosAuxiliar = [
                     data-bs-target="#instructionsCollapse" 
                     aria-expanded="false" 
                     aria-controls="instructionsCollapse">
-                <span class="fs-4">📋</span>
+                <span class="fs-4">Guia</span>
                 <span>Guía de Recintos</span>
                 <span class="ms-auto">▼</span>
             </button>
@@ -182,7 +182,7 @@ $recintosAuxiliar = [
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div class="card bg-dark bg-opacity-50 border-info border-2 h-100 text-center">
                                 <div class="card-body p-3">
-                                    <div class="fs-1 mb-2">🌲</div>
+                                    <div class="fs-1 mb-2">Bosque</div>
                                     <h6 class="card-title text-warning fw-bold">Bosque de lo Mismo</h6>
                                     <p class="card-text text-light small mb-0">Una sola especie. Puntos progresivos: 1→1, 2→3, 3→6, 4→10</p>
                                 </div>
@@ -191,7 +191,7 @@ $recintosAuxiliar = [
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div class="card bg-dark bg-opacity-50 border-info border-2 h-100 text-center">
                                 <div class="card-body p-3">
-                                    <div class="fs-1 mb-2">🌿</div>
+                                    <div class="fs-1 mb-2">Pradera</div>
                                     <h6 class="card-title text-warning fw-bold">Pradera de lo Diferente</h6>
                                     <p class="card-text text-light small mb-0">Solo especies diferentes. Puntos: 1→1, 2→3, 3→6, 4→10</p>
                                 </div>
@@ -200,7 +200,7 @@ $recintosAuxiliar = [
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div class="card bg-dark bg-opacity-50 border-info border-2 h-100 text-center">
                                 <div class="card-body p-3">
-                                    <div class="fs-1 mb-2">👥</div>
+                                    <div class="fs-1 mb-2">Parejas</div>
                                     <h6 class="card-title text-warning fw-bold">Pradera de Parejas</h6>
                                     <p class="card-text text-light small mb-0">Forma parejas idénticas. +5 puntos por cada pareja completa</p>
                                 </div>
@@ -209,7 +209,7 @@ $recintosAuxiliar = [
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div class="card bg-dark bg-opacity-50 border-info border-2 h-100 text-center">
                                 <div class="card-body p-3">
-                                    <div class="fs-1 mb-2">🌳</div>
+                                    <div class="fs-1 mb-2">Trio</div>
                                     <h6 class="card-title text-warning fw-bold">Trío Arbóreo</h6>
                                     <p class="card-text text-light small mb-0">Máximo 3 espacios. Solo da +7 puntos si está completamente lleno</p>
                                 </div>
@@ -218,7 +218,7 @@ $recintosAuxiliar = [
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div class="card bg-dark bg-opacity-50 border-info border-2 h-100 text-center">
                                 <div class="card-body p-3">
-                                    <div class="fs-1 mb-2">👑</div>
+                                    <div class="fs-1 mb-2">Rey</div>
                                     <h6 class="card-title text-warning fw-bold">Rey de la Selva</h6>
                                     <p class="card-text text-light small mb-0">Solo 1 dinosaurio. +7 puntos si tienes mayoría de esa especie</p>
                                 </div>
@@ -227,7 +227,7 @@ $recintosAuxiliar = [
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div class="card bg-dark bg-opacity-50 border-info border-2 h-100 text-center">
                                 <div class="card-body p-3">
-                                    <div class="fs-1 mb-2">🏝️</div>
+                                    <div class="fs-1 mb-2">Isla</div>
                                     <h6 class="card-title text-warning fw-bold">Isla Solitaria</h6>
                                     <p class="card-text text-light small mb-0">Solo 1 dinosaurio. +7 puntos si es único en tu zoológico</p>
                                 </div>
@@ -236,7 +236,7 @@ $recintosAuxiliar = [
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div class="card bg-dark bg-opacity-50 border-info border-2 h-100 text-center">
                                 <div class="card-body p-3">
-                                    <div class="fs-1 mb-2">🌊</div>
+                                    <div class="fs-1 mb-2">Rio</div>
                                     <h6 class="card-title text-warning fw-bold">El Río</h6>
                                     <p class="card-text text-light small mb-0">Sin restricciones. +1 punto por cada dinosaurio colocado</p>
                                 </div>
@@ -245,7 +245,7 @@ $recintosAuxiliar = [
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div class="card bg-warning bg-opacity-25 border-warning border-2 h-100 text-center">
                                 <div class="card-body p-3">
-                                    <div class="fs-1 mb-2">🦖</div>
+                                    <div class="fs-1 mb-2">T-Rex</div>
                                     <h6 class="card-title text-warning fw-bold">Bonus T-Rex</h6>
                                     <p class="card-text text-light small mb-0">+1 punto extra por cada recinto con al menos un T-Rex</p>
                                 </div>
@@ -261,7 +261,7 @@ $recintosAuxiliar = [
     <footer class="bg-dark bg-opacity-75 border-top border-warning border-2 py-4 text-center">
         <div class="container">
             <p class="text-light mb-0 d-flex align-items-center justify-content-center gap-3 flex-wrap">
-                <span class="fs-4">🦕</span>
+                <span class="fs-4">Dino</span>
                 <span class="fw-semibold">Draftosaurus - Modo Auxiliar</span>
                 <span class="badge bg-info rounded-pill px-3 py-1">v0.2</span>
             </p>

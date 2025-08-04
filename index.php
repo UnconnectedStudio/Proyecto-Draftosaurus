@@ -35,7 +35,7 @@
                     <article class="col-md-6">
                         <div class="feature-card card h-100">
                             <div class="card-body text-center">
-                                <h3 class="feature-title card-title">🎲 Jugadores</h3>
+                                <h3 class="feature-title card-title">Jugadores</h3>
                                 <p class="feature-text card-text">2-5 jugadores</p>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                     <article class="col-md-6">
                         <div class="feature-card card h-100">
                             <div class="card-body text-center">
-                                <h3 class="feature-title card-title">⏰ Duración</h3>
+                                <h3 class="feature-title card-title">Duración</h3>
                                 <p class="feature-text card-text">10-15 minutos</p>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                     <article class="col-md-6">
                         <div class="feature-card card h-100">
                             <div class="card-body text-center">
-                                <h3 class="feature-title card-title">🧠 Estrategia</h3>
+                                <h3 class="feature-title card-title">Estrategia</h3>
                                 <p class="feature-text card-text">Draft & Colocación</p>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                     <article class="col-md-6">
                         <div class="feature-card card h-100">
                             <div class="card-body text-center">
-                                <h3 class="feature-title card-title">🏆 Objetivo</h3>
+                                <h3 class="feature-title card-title">Objetivo</h3>
                                 <p class="feature-text card-text">Máxima puntuación</p>
                             </div>
                         </div>
@@ -106,10 +106,12 @@
                     </figure>
                     <div class="option-text">
                         <h3>Modo Jugable</h3>
-                        <p>Juega una partida completa de Draftosaurus modo Summer</p>
+                        <p>Juega una partida completa con drag & drop interactivo y tracking de cursor</p>
                     </div>
                 </div>
             </article>
+
+
         </div>
 
         <nav class="options-navigation">
@@ -124,7 +126,6 @@
 
     <!-- Footer -->
     <footer class="app-footer">
-        <p class="version-text">version: 0.2</p>
     </footer>
 
     <!-- Scripts -->

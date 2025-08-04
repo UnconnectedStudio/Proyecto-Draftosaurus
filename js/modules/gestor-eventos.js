@@ -21,9 +21,9 @@ export class GestorEventos {
             this.configurarDelegacionEventos();
             this.configurarEventosPersonalizados();
             this.configurarManejadoresEventosGlobales();
-            console.log('🎯 Gestor de Eventos inicializado');
+            console.log('Gestor de Eventos inicializado');
         } catch (error) {
-            console.error('❌ Error inicializando Gestor de Eventos:', error);
+            console.error('Error inicializando Gestor de Eventos:', error);
             throw error;
         }
     }
@@ -70,7 +70,7 @@ export class GestorEventos {
             try {
                 manejador(e);
             } catch (error) {
-                console.error(`❌ Error en evento delegado ${tipoEvento}:`, error);
+                console.error(`Error en evento delegado ${tipoEvento}:`, error);
             }
         };
 
@@ -137,7 +137,7 @@ export class GestorEventos {
      * Maneja acciones basadas en data-action
      */
     manejarAccion(accion, elemento, evento) {
-        console.log(`🎯 Acción ejecutada: ${accion}`);
+        console.log(`Acción ejecutada: ${accion}`);
 
         switch (accion) {
             case CONFIGURACION.ACCIONES.MOSTRAR_OPCIONES:
@@ -154,7 +154,7 @@ export class GestorEventos {
                 break;
                 
             default:
-                console.warn(`⚠️ Acción desconocida: ${accion}`);
+                console.warn(`Acción desconocida: ${accion}`);
         }
 
         // Emitir evento personalizado
@@ -312,18 +312,18 @@ export class GestorEventos {
     configurarEventosPersonalizados() {
         // Evento para cambios de pantalla
         this.escuchar('pantalla:cambio', (datos) => {
-            console.log(`📱 Cambio de pantalla detectado:`, datos);
+            console.log(`Cambio de pantalla detectado:`, datos);
         });
 
         // Evento para errores
         this.escuchar('error:ocurrido', (datos) => {
-            console.error(`❌ Error detectado:`, datos);
+            console.error(`Error detectado:`, datos);
             this.manejarErrorAplicacion(datos);
         });
 
         // Evento para acciones de usuario
         this.escuchar('usuario:accion', (datos) => {
-            console.log(`👤 Acción de usuario:`, datos);
+            console.log(`Acción de usuario:`, datos);
         });
     }
 
@@ -400,7 +400,7 @@ export class GestorEventos {
                 try {
                     manejador(datos);
                 } catch (error) {
-                    console.error(`❌ Error en manejador de evento ${nombreEvento}:`, error);
+                    console.error(`Error en manejador de evento ${nombreEvento}:`, error);
                 }
             });
         }
@@ -467,6 +467,6 @@ export class GestorEventos {
         // Limpiar listeners registrados
         this.oyentesEventos.clear();
 
-        console.log('🧹 Gestor de Eventos limpiado');
+        console.log('Gestor de Eventos limpiado');
     }
 }

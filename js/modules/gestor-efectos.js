@@ -23,9 +23,9 @@ export class GestorEfectos {
             this.configurarEfectosDesplazamiento();
             this.configurarEfectosHover();
             this.verificarPreferenciaMovimientoReducido();
-            console.log('✨ Gestor de Efectos inicializado');
+            console.log('Gestor de Efectos inicializado');
         } catch (error) {
-            console.error('❌ Error inicializando Gestor de Efectos:', error);
+            console.error('Error inicializando Gestor de Efectos:', error);
             throw error;
         }
     }
@@ -42,7 +42,7 @@ export class GestorEfectos {
      */
     verificarPreferenciaMovimientoReducido() {
         if (CONFIGURACION_ENTORNO.prefiereMovimientoReducido) {
-            console.log('♿ Movimiento reducido detectado - Desactivando animaciones complejas');
+            console.log('Movimiento reducido detectado - Desactivando animaciones complejas');
             this.animacionesPausadas = true;
         }
 
@@ -50,7 +50,7 @@ export class GestorEfectos {
         const consultaMedia = window.matchMedia(CONFIGURACION.ACCESIBILIDAD.CONSULTA_MOVIMIENTO_REDUCIDO);
         consultaMedia.addEventListener('change', (e) => {
             this.animacionesPausadas = e.matches;
-            console.log(`♿ Preferencia de movimiento cambiada: ${e.matches ? 'reducido' : 'normal'}`);
+            console.log(`Preferencia de movimiento cambiada: ${e.matches ? 'reducido' : 'normal'}`);
         });
     }
 
@@ -302,7 +302,7 @@ export class GestorEfectos {
      * Maneja cambios de pantalla
      */
     alCambiarPantalla(desdePantalla, aPantalla) {
-        console.log(`🎬 Transición de efectos: ${desdePantalla} → ${aPantalla}`);
+        console.log(`Transición de efectos: ${desdePantalla} → ${aPantalla}`);
 
         // Limpiar efectos de parallax cuando no estamos en main
         if (aPantalla !== 'principal') {
@@ -374,7 +374,7 @@ export class GestorEfectos {
             this.idFrameAnimacion = null;
         }
 
-        console.log('⏸️ Animaciones pausadas');
+        console.log('Animaciones pausadas');
     }
 
     /**
@@ -384,7 +384,7 @@ export class GestorEfectos {
         if (CONFIGURACION_ENTORNO.prefiereMovimientoReducido) return;
         
         this.animacionesPausadas = false;
-        console.log('▶️ Animaciones reanudadas');
+        console.log('Animaciones reanudadas');
     }
 
     /**
@@ -483,6 +483,6 @@ export class GestorEfectos {
         this.elementosParallax = [];
         this.animacionesPausadas = false;
 
-        console.log('🧹 Gestor de Efectos limpiado');
+        console.log('Gestor de Efectos limpiado');
     }
 }

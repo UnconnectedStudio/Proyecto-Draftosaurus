@@ -1,4 +1,4 @@
-function handleClick() {
+function manejarClick() {
     // Obtiene elementos
     const pantallaPrincipal = document.getElementById('pantalla-principal');
     const botonJugar = document.getElementById('boton-jugar');

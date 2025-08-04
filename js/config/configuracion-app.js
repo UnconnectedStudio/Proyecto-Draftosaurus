@@ -11,7 +11,7 @@ export const CONFIGURACION = {
     // Rutas de navegación
     RUTAS: {
         MODO_AUXILIAR: './auxiliar.php',
-        MODO_JUGABLE: './jugable.php'
+        MODO_JUGABLE: './nueva_partida.php'
     },
     
     // Selectores DOM
@@ -134,7 +134,7 @@ export const CONFIGURACION = {
     // URLs de recursos
     RECURSOS: {
         IMAGENES: {
-            FONDO: '/recursos/img/prueba-fondo-imagen.png',
+            FONDO: '/recursos/img/nuevoFondoPantalla.png',
             LOGO_PRINCIPAL: '/recursos/img/logoDraftosaurus-titulo-sinfondon.png',
             LOGO_EMPRESA: '/recursos/img/logoEmpresa-sinfondo.png',
             MODO_AUXILIAR: '/recursos/img/auximg.png',

@@ -16,7 +16,7 @@ export class GestorTablero {
                 maxDinos: 4,
                 posicion: { x: 10, y: 20 },
                 zona: 'bosque',
-                icono: '🌲',
+                icono: 'Bosque',
                 color: '#2d5016'
             },
             {
@@ -26,7 +26,7 @@ export class GestorTablero {
                 maxDinos: 4,
                 posicion: { x: 70, y: 20 },
                 zona: 'pradera',
-                icono: '🌿',
+                icono: 'Pradera',
                 color: '#4a7c59'
             },
             {
@@ -36,7 +36,7 @@ export class GestorTablero {
                 maxDinos: 6,
                 posicion: { x: 70, y: 60 },
                 zona: 'pradera',
-                icono: '👥',
+                icono: 'Parejas',
                 color: '#059669'
             },
             {
@@ -46,7 +46,7 @@ export class GestorTablero {
                 maxDinos: 3,
                 posicion: { x: 10, y: 60 },
                 zona: 'bosque',
-                icono: '🌳',
+                icono: 'Trio',
                 color: '#166534'
             },
             {
@@ -56,7 +56,7 @@ export class GestorTablero {
                 maxDinos: 1,
                 posicion: { x: 10, y: 80 },
                 zona: 'bosque',
-                icono: '👑',
+                icono: 'Rey',
                 color: '#fbbf24'
             },
             {
@@ -66,7 +66,7 @@ export class GestorTablero {
                 maxDinos: 1,
                 posicion: { x: 70, y: 80 },
                 zona: 'pradera',
-                icono: '🏝️',
+                icono: 'Isla',
                 color: '#0ea5e9'
             },
             {
@@ -76,7 +76,7 @@ export class GestorTablero {
                 maxDinos: 99,
                 posicion: { x: 40, y: 50 },
                 zona: 'rio',
-                icono: '🌊',
+                icono: 'Rio',
                 color: '#0284c7'
             }
         ];
@@ -89,7 +89,7 @@ export class GestorTablero {
         this.crearTableroVisual();
         this.configurarEventos();
         this.inicializarRecintos();
-        console.log('🗺️ Gestor de Tablero inicializado');
+        console.log('Gestor de Tablero inicializado');
     }
 
     /**
@@ -103,9 +103,15 @@ export class GestorTablero {
             contenedor.className = 'tablero-container';
             
             // Insertar en el área principal del juego
-            const main = document.querySelector('main') || document.querySelector('.tablero-juego');
+            const main = document.querySelector('main') || 
+                         document.querySelector('.tablero-juego') ||
+                         document.querySelector('.container') ||
+                         document.body;
             if (main) {
                 main.insertBefore(contenedor, main.firstChild);
+            } else {
+                console.error('No se encontró contenedor principal para el tablero');
+                return;
             }
         }
 
@@ -113,34 +119,34 @@ export class GestorTablero {
             <div class="tablero-visual" id="tablero-visual">
                 <div class="tablero-fondo">
                     <div class="zona-bosque">
-                        <div class="zona-titulo">🌲 Bosque</div>
+                        <div class="zona-titulo">Bosque</div>
                     </div>
                     <div class="zona-rio">
                         <div class="rio-visual">
                             <div class="rio-flujo"></div>
-                            <div class="zona-titulo">🌊 Río</div>
+                            <div class="zona-titulo">Río</div>
                         </div>
                     </div>
                     <div class="zona-pradera">
-                        <div class="zona-titulo">🌿 Pradera</div>
+                        <div class="zona-titulo">Pradera</div>
                     </div>
                 </div>
                 <div class="recintos-overlay" id="recintos-overlay">
                     <!-- Los recintos se generarán aquí -->
                 </div>
                 <div class="elementos-decorativos">
-                    <div class="elemento-decorativo arbol" style="top: 15%; left: 5%;">🌳</div>
-                    <div class="elemento-decorativo arbol" style="top: 25%; left: 15%;">🌲</div>
-                    <div class="elemento-decorativo flor" style="top: 30%; right: 10%;">🌸</div>
-                    <div class="elemento-decorativo flor" style="top: 70%; right: 5%;">🌺</div>
-                    <div class="elemento-decorativo roca" style="bottom: 20%; left: 45%;">🪨</div>
+                    <div class="elemento-decorativo arbol" style="top: 15%; left: 5%;">Arbol</div>
+                    <div class="elemento-decorativo arbol" style="top: 25%; left: 15%;">Arbol</div>
+                    <div class="elemento-decorativo flor" style="top: 30%; right: 10%;">Flor</div>
+                    <div class="elemento-decorativo flor" style="top: 70%; right: 5%;">Flor</div>
+                    <div class="elemento-decorativo roca" style="bottom: 20%; left: 45%;">Roca</div>
                 </div>
             </div>
             <div class="tablero-controles">
-                <button class="tablero-boton" id="centrar-tablero">🎯 Centrar Vista</button>
-                <button class="tablero-boton" id="zoom-in">🔍 Acercar</button>
-                <button class="tablero-boton" id="zoom-out">🔍 Alejar</button>
-                <button class="tablero-boton" id="vista-completa">📋 Vista Completa</button>
+                <button class="tablero-boton" id="centrar-tablero">Centrar Vista</button>
+                <button class="tablero-boton" id="zoom-in">Acercar</button>
+                <button class="tablero-boton" id="zoom-out">Alejar</button>
+                <button class="tablero-boton" id="vista-completa">Vista Completa</button>
             </div>
         `;
 
@@ -312,7 +318,7 @@ export class GestorTablero {
             detail: { recintoId, dinosaurio, recinto }
         }));
 
-        console.log(`🦕 Dinosaurio ${dinosaurio.nombre} colocado en ${recinto.nombre}`);
+        console.log(`Dinosaurio ${dinosaurio.nombre} colocado en ${recinto.nombre}`);
         return true;
     }
 
@@ -446,14 +452,14 @@ export class GestorTablero {
      */
     obtenerIconoDinosaurio(dinosaurio) {
         const iconos = {
-            'T-Rex': '🦖',
-            'Stegosaurus': '🦕',
-            'Triceratops': '🦴',
-            'Raptor': '🦅',
-            'Sauropodo': '🦕',
-            'Allosaurus': '🐊'
+            'T-Rex': 'T-Rex',
+            'Stegosaurus': 'Stego',
+            'Triceratops': 'Trice',
+            'Raptor': 'Raptor',
+            'Sauropodo': 'Sauro',
+            'Allosaurus': 'Allo'
         };
-        return iconos[dinosaurio.familia] || '🦕';
+        return iconos[dinosaurio.familia] || 'Dino';
     }
 
     /**
@@ -476,7 +482,7 @@ export class GestorTablero {
             detail: { recintoId }
         }));
 
-        console.log('🎯 Recinto seleccionado:', recintoId);
+        console.log('Recinto seleccionado:', recintoId);
     }
 
     /**
@@ -593,7 +599,7 @@ export class GestorTablero {
             r.classList.remove('recinto-seleccionado', 'recinto-permitido', 'recinto-prohibido');
         });
 
-        console.log('🧹 Tablero reseteado');
+        console.log('Tablero reseteado');
     }
 
     /**
@@ -611,6 +617,6 @@ export class GestorTablero {
         }
 
         this.recintos.clear();
-        console.log('🧹 Gestor de Tablero destruido');
+        console.log('Gestor de Tablero destruido');
     }
 }
