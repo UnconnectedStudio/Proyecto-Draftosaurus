@@ -1,0 +1,145 @@
+
+/* Título principal de la página de inicio */
+h1, .inicio-titulo {
+	font-size: 16rem;
+	font-family: 'Bangers', cursive;
+	color: #7a3045;
+	margin-bottom: 32px;
+	text-align: center;
+}
+
+/* Estilos para el modal de opciones */
+.modal-opciones {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+}
+/* Contenido interno del modal */
+.modal-contenido {
+	background: #e6904e;
+	border: 3px solid #7a3045;
+	border-radius: 16px;
+	padding: 32px 40px;
+	min-width: 320px;
+	box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+/* Elementos de texto dentro del modal */
+.modal-contenido h2,
+.modal-contenido label,
+.modal-contenido span {
+	color: #b33831;
+	font-family: 'Bangers', cursive;
+	margin-bottom: 16px;
+}
+/* Barra de rango dentro del modal */
+.modal-contenido input[type="range"] {
+	width: 200px;
+	accent-color: #7a3045;
+	margin-bottom: 10px;
+}
+/* Botón dentro del modal */
+.modal-contenido button {
+	margin-top: 18px;
+	padding: 10px 30px;
+	font-size: 1.1rem;
+	font-family: 'Bangers', cursive;
+	border: 2px solid #7a3045;
+	border-radius: 8px;
+	background: #e6904e;
+	color: #b33831;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+/* Efecto hover para el botón del modal */
+.modal-contenido button:hover {
+	background: #fbb954;
+}
+/* Importar fuente Bangers de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+/* Estilos globales para body y html */
+body, html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+/* Fondo principal de la página de inicio */
+.fondo {
+	background-image: url('../imagenes/FondoInicio.png');
+	background-size: cover;
+	background-position: center;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Espaciado para el header */
+header {
+	margin-bottom: 40px;
+}
+
+/* Estilos para el título del juego */
+.titulo-juego {
+	max-width: 600px;
+	width: 100%;
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Contenedor de los botones principales */
+.botones {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+}
+
+/* Botones principales de la página de inicio */
+.botones button {
+	padding: 18px 48px;
+	font-size: 1.5rem;
+	min-width: 220px;
+	font-family: 'Bangers', cursive;
+	border: none;
+	border-radius: 0;
+	background: none !important;
+	color: #fff;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+}
+
+/* Fondo de imagen detrás del texto de los botones */
+.botones button::before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 220%;
+	height: 220%;
+	background: url('../imagenes/fondoBoton.png') center center / contain no-repeat;
+	z-index: -1;
+	opacity: 1;
+}
+
+/* Efecto hover para los botones principales */
+.botones button:hover {
+	background: #7a3045;
+	color: #e6904e;
+}

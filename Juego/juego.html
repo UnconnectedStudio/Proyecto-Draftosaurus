@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Juego</title>
+	<link rel="stylesheet" href="juego.css">
+	<script src="juego.js" defer></script>
+</head>
+<body>
+	<!-- Barra superior con navegación entre páginas y calculadora -->
+	<header class="barra-superior">
+	<!-- Botones de navegación: volver, resultado y calculadora -->
+		<nav>
+			<button class="boton-barra" id="volver">Volver</button>
+			<button class="boton-barra" id="resultado">Resultado</button>
+			<button class="boton-barra" id="calculadora">Calculadora</button>
+		</nav>
+	</header>
+	<aside id="modal-calculadora" class="modal-calculadora" style="display:none;">
+	<!-- Modal que muestra los sectores y permite seleccionar dinosaurios -->
+		<section class="modal-contenido">
+			<!-- Texto de ayuda para quitar dinosaurios -->
+			<small style="display:block;margin-bottom:8px;color:#7a3045;font-size:0.95em;">Click derecho para quitar dinosaurios</small>
+			<!-- Botón para cerrar el modal -->
+			<button class="cerrar-modal" id="cerrar-modal" aria-label="Cerrar">&times;</button>
+			<ul class="sectores-lista">
+				<!-- Cada sector representa una zona del tablero y tiene selectores de dinosaurios -->
+				<li class="sector-con-selectores">
+					<!-- Puntos individuales del sector -->
+					<span class="puntos-sector" id="puntos-sector-1">0</span>
+					<span>Sector 1</span>
+					<div class="selectores-dino">
+						<!-- Selectores para elegir dinosaurios en el sector -->
+						<div class="selector-dino" data-index="0" data-sector="1"></div>
+						<div class="selector-dino" data-index="1" data-sector="1"></div>
+						<div class="selector-dino" data-index="2" data-sector="1"></div>
+						<div class="selector-dino" data-index="3" data-sector="1"></div>
+						<div class="selector-dino" data-index="4" data-sector="1"></div>
+						<div class="selector-dino" data-index="5" data-sector="1"></div>
+					</div>
+				</li>
+				<li class="sector-con-selectores">
+					<span class="puntos-sector" id="puntos-sector-2">0</span>
+					<span>Sector 2</span>
+					<div class="selectores-dino">
+						<div class="selector-dino" data-index="0" data-sector="2"></div>
+						<div class="selector-dino" data-index="1" data-sector="2"></div>
+						<div class="selector-dino" data-index="2" data-sector="2"></div>
+					</div>
+				</li>
+				<li class="sector-con-selectores">
+					<span class="puntos-sector" id="puntos-sector-3">0</span>
+					<span>Sector 3</span>
+					<div class="selectores-dino">
+						<div class="selector-dino" data-index="0" data-sector="3"></div>
+						<div class="selector-dino" data-index="1" data-sector="3"></div>
+						<div class="selector-dino" data-index="2" data-sector="3"></div>
+						<div class="selector-dino" data-index="3" data-sector="3"></div>
+						<div class="selector-dino" data-index="4" data-sector="3"></div>
+						<div class="selector-dino" data-index="5" data-sector="3"></div>
+						<div class="selector-dino" data-index="6" data-sector="3"></div>
+						<div class="selector-dino" data-index="7" data-sector="3"></div>
+					</div>
+				</li>
+				<li class="sector-con-selectores">
+					<span class="puntos-sector" id="puntos-sector-4">0</span>
+					<span>Sector 4</span>
+					<div class="selectores-dino">
+						<div class="selector-dino" data-index="0" data-sector="4"></div>
+					</div>
+				</li>
+				<li class="sector-con-selectores">
+					<span class="puntos-sector" id="puntos-sector-5">0</span>
+					<span>Sector 5</span>
+					<div class="selectores-dino">
+						<div class="selector-dino" data-index="0" data-sector="5"></div>
+						<div class="selector-dino" data-index="1" data-sector="5"></div>
+						<div class="selector-dino" data-index="2" data-sector="5"></div>
+						<div class="selector-dino" data-index="3" data-sector="5"></div>
+						<div class="selector-dino" data-index="4" data-sector="5"></div>
+						<div class="selector-dino" data-index="5" data-sector="5"></div>
+					</div>
+				</li>
+				<li class="sector-con-selectores">
+					<span class="puntos-sector" id="puntos-sector-6">0</span>
+					<span>Sector 6</span>
+					<div class="selectores-dino">
+						<div class="selector-dino" data-index="0" data-sector="6"></div>
+					</div>
+				</li>
+				<li class="sector-con-selectores">
+					<span class="puntos-sector" id="puntos-sector-7">0</span>
+					<span>Sector 7</span>
+					<div class="selectores-dino">
+						<div class="selector-dino" data-index="0" data-sector="7"></div>
+						<div class="selector-dino" data-index="1" data-sector="7"></div>
+						<div class="selector-dino" data-index="2" data-sector="7"></div>
+						<div class="selector-dino" data-index="3" data-sector="7"></div>
+						<div class="selector-dino" data-index="4" data-sector="7"></div>
+						<div class="selector-dino" data-index="5" data-sector="7"></div>
+						<div class="selector-dino" data-index="6" data-sector="7"></div>
+						<div class="selector-dino" data-index="7" data-sector="7"></div>
+					</div>
+				</li>
+				<li class="total-puntos-container">
+					<!-- Total de puntos sumados de todos los sectores -->
+					<span class="total-label">Total:</span>
+					<span class="total-puntos" id="total-puntos">0</span>
+				</li>
+			</ul>
+		</section>
+	</aside>
+	<main class="contenido-juego">
+	<!-- Imagen del tablero principal del juego -->
+		<img src="../imagenes/Tablero.png" alt="Tablero" class="tablero-img">
+	</main>
+	<footer class="barra-inferior">
+	<!-- Barra inferior con botones para seleccionar dinosaurios principales -->
+		<nav>
+			<ul style="display:flex;gap:18px;list-style:none;padding:0;margin:0;">
+				<!-- Botón de dinosaurio con emoji y nombre -->
+				<li class="boton-dino">
+					<button class="boton-dino-btn">🦖</button>
+					<span class="nombre-dino">Tyrannosaurus</span>
+				</li>
+				<li class="boton-dino">
+					<button class="boton-dino-btn">🦕</button>
+					<span class="nombre-dino">Brachiosaurus</span>
+				</li>
+				<li class="boton-dino">
+					<button class="boton-dino-btn">🦴</button>
+					<span class="nombre-dino">Stegosaurus</span>
+				</li>
+				<li class="boton-dino">
+					<button class="boton-dino-btn">🦩</button>
+					<span class="nombre-dino">Pterosaur</span>
+				</li>
+				<li class="boton-dino">
+					<button class="boton-dino-btn">🦣</button>
+					<span class="nombre-dino">Ankylosaurus</span>
+				</li>
+				<li class="boton-dino">
+					<button class="boton-dino-btn">🦚</button>
+					<span class="nombre-dino">Dilophosaurus</span>
+				</li>
+			</ul>
+		</nav>
+	</footer>
+</body>
+</html>

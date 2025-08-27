@@ -1,0 +1,262 @@
+/* Fondo y configuración general de la página de juego */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url('../imagenes/FondoJuego.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-y: hidden;
+    box-sizing: border-box;
+}
+
+/* Barra superior fija con botones de navegación */
+.barra-superior {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    padding: 36px 72px;
+    background: url('../imagenes/fondoHoja2.png') center center / cover no-repeat;
+    border-radius: 24px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+/* Botones de la barra superior */
+.boton-barra {
+    background: url('../imagenes/fondoBoton.png') no-repeat center center;
+    background-size: cover;
+    border: none;
+    color: #00cfff;
+    font-size: 1.2em;
+    padding: 8px 18px;
+    margin: 0 4px;
+    border-radius: 12px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Contenedor principal del tablero */
+.contenido-juego {
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-top: 70px;
+    margin-bottom: 120px;
+}
+
+/* Imagen del tablero */
+.tablero-img {
+    width: 420px;
+    max-width: 85vw;
+    height: auto;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    border-radius: 18px;
+}
+
+/* Barra inferior fija con botones de dinosaurios */
+.barra-inferior {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18px;
+    background: url('../imagenes/fondoHoja.png') center center / cover no-repeat;
+    padding: 28px 56px;
+    border-radius: 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    z-index: 100;
+}
+
+/* Contenedor de cada dinosaurio en la barra inferior */
+.boton-dino {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Botón de dinosaurio con emoji */
+.boton-dino-btn {
+    color: #00cfff;
+    background: url('../imagenes/fondoBoton.png') no-repeat center center;
+    background-size: cover;
+    border: none;
+    font-size: 2em;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 6px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Nombre del dinosaurio debajo del botón */
+.nombre-dino {
+    color: #222;
+    font-size: 0.85em;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #fff;
+}
+
+/* Modal Calculadora */
+/* Modal calculadora para selección de sectores */
+.modal-calculadora {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Contenido interno del modal calculadora */
+.modal-contenido {
+    background: #fff;
+    padding: 32px 24px 24px 24px;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Botón para cerrar el modal */
+.cerrar-modal {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 2em;
+    color: #00cfff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Lista de sectores en el modal */
+.sectores-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 18px;
+    font-size: 1.3em;
+    color: #003c78;
+    font-weight: bold;
+    align-items: center;
+}
+
+/* Contenedor de cada sector y sus selectores */
+.sector-con-selectores {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+/* Selectores de dinosaurios en cada sector */
+.selectores-dino {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botón cuadrado para seleccionar dinosaurio en sector */
+.selector-dino {
+    width: 38px;
+    height: 38px;
+    background: #e0f7fa;
+    border: 2px solid #00cfff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+/* Menú de selección de dinosaurio */
+.menu-dino {
+    background: #fff;
+    border: 2px solid #00cfff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    padding: 8px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    position: absolute;
+    z-index: 2000;
+    min-width: 48px;
+    align-items: center;
+}
+
+/* Opción de dinosaurio en el menú */
+.menu-dino-opcion {
+    font-size: 1.5em;
+    padding: 4px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+/* Efecto hover en opción de menú */
+.menu-dino-opcion:hover {
+    background: #e0f7fa;
+}
+
+/* Puntos individuales de cada sector */
+.puntos-sector {
+    display: inline-block;
+    min-width: 32px;
+    text-align: right;
+    margin-right: 12px;
+    font-size: 1.2em;
+    color: #00cfff;
+    font-weight: bold;
+}
+
+/* Contenedor y estilos para el total de puntos */
+.total-puntos-container {
+    margin-top: 28px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.3em;
+    color: #003c78;
+    font-weight: bold;
+}
+
+/* Etiqueta 'Total' en el modal */
+.total-label {
+    font-size: 1.2em;
+    color: #003c78;
+    font-weight: bold;
+}
+
+/* Valor total de puntos en el modal */
+.total-puntos {
+    font-size: 1.2em;
+    color: #00cfff;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: right;
+}
