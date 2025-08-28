@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draftosaurus - Modo Jugable</title>
+    <link rel="stylesheet" href="/pantallas/modo jugable/css/jugableStyle.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <section class="juego-container">
+        <!-- Nueva barra de navegación y puntajes -->
+        <header class="barra-navegacion">
+            <!-- Sección de puntajes (izquierda) -->
+            <section class="seccion-puntajes" aria-label="Estadísticas del jugador">
+                <span class="puntaje-item">
+                    Puntos: <span class="puntaje-numero" id="puntos-totales">Ejemplo</span>
+                </span>
+                <span class="puntaje-item">
+                    Partidas: <span class="puntaje-numero" id="partidas-jugadas">Ejemplo</span>
+                </span>
+                <span class="puntaje-item">
+                    Nivel: <span class="puntaje-numero" id="nivel-jugador">ejemplo</span>
+                </span>
+            </section>
+            <!-- Sección de navegación (derecha) -->
+            <nav class="seccion-navegacion" aria-label="Navegación principal">
+                <a href="/index.html" class="boton-nav" onclick="irAlMenu()">
+                    Menú Principal
+                </a>
+                <a href="/pantallas/modo auxiliar/auxiliar.html" class="boton-nav" onclick="irAModoAuxiliar()">
+                    Modo Auxiliar
+                </a>
+                <a href="#" class="boton-nav" onclick="mostrarEstadisticas()">
+                    Estadísticas
+                </a>
+            </nav>
+        </header>
+        <!-- Área principal del juego -->
+        <main class="area-juego">
+            <!-- Zona del tablero (izquierda) -->
+            <section class="zona-tablero" aria-label="Tablero de juego">
+                <section class="tablero" id="tablero-principal" role="game">
+                    <img src="/recursos/img/mapaDraftosaurus.jpeg" alt="Tablero Draftosaurus">
+                </section>
+            </section>
+            <!-- Zona de dinosaurios (derecha) -->
+            <aside class="zona-dinosaurios" aria-label="Panel de dinosaurios">
+                <h3>Dinosaurios Disponibles</h3>
+                <section class="grid-dinosaurios" id="grid-dinosaurios" aria-label="Dinosaurios seleccionables">
+                    <!-- Los dinosaurios se generan dinámicamente -->
+                </section>
+                <section class="controles-dino" role="toolbar" aria-label="Controles del juego">
+                    <button class="boton-control" onclick="mezclarDinosaurios()" aria-label="Mezclar dinosaurios disponibles">
+                        Mezclar
+                    </button>
+                    <button class="boton-control" onclick="resetearJuego()" aria-label="Reiniciar partida">
+                        Reiniciar
+                    </button>
+                </section>
+            </aside>
+        </main>
+        <!-- Información del juego -->
+        <footer class="info-juego" aria-label="Estado actual del juego">
+            <h4>Estado del Juego</h4>
+            <dl>
+                <dt>Turno:</dt>
+                <dd id="turno-actual">1</dd>
+                <dt>Jugador:</dt>
+                <dd id="jugador-actual">Tu turno</dd>
+                <dt>Dinosaurios restantes:</dt>
+                <dd id="dinos-restantes">10</dd>
+            </dl>
+        </footer>
+    </section>
+    <script src="/pantallas/modo jugable/js/jugable.js"></script>
+</body>
+</html>
