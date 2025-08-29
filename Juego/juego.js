@@ -3,10 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('volver').addEventListener('click', function() {
 		window.location.href = '../Inicio/inicio.html';
 	});
-	// Boton para ir a la página de resultado
-	document.getElementById('resultado').addEventListener('click', function() {
-		window.location.href = '../Resultado/resultado.html';
-	});
 	// Mostrar modal calculadora
 	document.getElementById('calculadora').addEventListener('click', function() {
 		document.getElementById('modal-calculadora').style.display = 'flex';
@@ -15,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('cerrar-modal').addEventListener('click', function() {
 		document.getElementById('modal-calculadora').style.display = 'none';
 	});
+	// Mostrar modal de opciones
+	var btnOpciones = document.getElementById('opciones-juego');
+	if (btnOpciones) {
+		btnOpciones.addEventListener('click', function() {
+			document.getElementById('modal-opciones-juego').style.display = 'flex';
+		});
+	}
 
 	// Selectores de dinosaurio
 	const emojis = ['🦖', '🦕', '🦴', '🦩', '🦣', '🦚'];

@@ -1,3 +1,4 @@
+/* === MODAL DE OPCIONES === */
 /* Fondo y configuración general de la página de juego */
 body {
     margin: 0;
@@ -17,14 +18,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 48px;
-    padding: 36px 72px;
-    background: url('../imagenes/fondoHoja2.png') center center / cover no-repeat;
-    border-radius: 24px;
+    flex-wrap: nowrap;
+    gap: 0px;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background: url('../imagenes/fondoHoja2.png') center center / 105% no-repeat;
+    border-radius: 22px;
     margin: 0 auto;
     box-sizing: border-box;
     position: fixed;
-    top: 0;
+    top: 4px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
@@ -33,12 +36,12 @@ body {
 /* Botones de la barra superior */
 .boton-barra {
     background: url('../imagenes/fondoBoton.png') no-repeat center center;
-    background-size: cover;
+    background-size: contain;
     border: none;
     color: #00cfff;
-    font-size: 1.2em;
-    padding: 8px 18px;
-    margin: 0 4px;
+    font-size: 1em;
+    padding: 28px 70px;
+    margin: 0 0.5px;
     border-radius: 12px;
     cursor: pointer;
     outline: none;
@@ -124,6 +127,19 @@ body {
     justify-content: center;
     z-index: 1000;
 }
+.modal-opciones {
+/* Modal de opciones centrado y con fondo oscuro */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
 
 /* Contenido interno del modal calculadora */
 .modal-contenido {
@@ -136,6 +152,34 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+}
+.modal-opciones .modal-contenido {
+    /* Estilos para los botones dentro del modal de opciones */
+    button {
+        margin-top: 18px;
+        padding: 10px 30px;
+        font-size: 1.1rem;
+        font-family: 'Bangers', cursive;
+        border: 2px solid #7a3045;
+        border-radius: 8px;
+        background: #e6904e;
+        color: #b33831;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    button:hover {
+        background: #fbb954;
+    }
+/* Contenido interno del modal de opciones (igual a inicio) */
+    background: #e6904e;
+    border: 3px solid #7a3045;
+    border-radius: 16px;
+    padding: 32px 40px;
+    min-width: 320px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Botón para cerrar el modal */
@@ -259,4 +303,151 @@ body {
     font-weight: bold;
     min-width: 40px;
     text-align: right;
+}
+
+/* Responsive para móvil 320x567px */
+@media (max-width: 400px), (max-height: 600px) {
+    /* Estilos responsivos para el modal de opciones en móvil */
+    #volver.boton-barra {
+        font-size: 1em;
+        padding: 10px 18px;
+        border-radius: 8px;
+        min-width: 60px;
+        max-width: 90px;
+        margin: 0;
+        white-space: nowrap;
+    }
+    body {
+        background-size: cover;
+        overflow-y: auto;
+    }
+    .barra-superior {
+        width: 98vw;
+        min-width: 0;
+        max-width: 98vw;
+        gap: 6px;
+        padding: 6px 2vw;
+        border-radius: 10px;
+        font-size: 0.95em;
+        flex-wrap: nowrap;
+        box-sizing: border-box;
+        left: 1vw;
+        transform: none;
+    }
+    .boton-barra {
+        font-size: 1em;
+        padding: 10px 18px;
+        border-radius: 8px;
+        min-width: 60px;
+        max-width: 90px;
+        word-break: break-word;
+        margin: 0;
+    }
+    .contenido-juego {
+        margin-top: 54px;
+        margin-bottom: 90px;
+        min-height: 180px;
+    }
+    .tablero-img {
+        width: 95vw;
+        max-width: 95vw;
+        border-radius: 10px;
+    }
+    .barra-inferior {
+        gap: 8px;
+        padding: 12px 8px;
+        border-radius: 12px;
+        max-width: 100vw;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+    .boton-dino-btn {
+        font-size: 1.3em;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        margin-bottom: 2px;
+    }
+    .nombre-dino {
+        font-size: 0.7em;
+    }
+    /* Modal calculadora */
+    .modal-contenido {
+        padding: 6px 2vw 6px 2vw;
+        min-width: 60vw;
+        max-width: 70vw;
+        border-radius: 7px;
+    }
+    .modal-opciones .modal-contenido {
+        padding: 10px 8vw;
+        min-width: 60vw;
+        max-width: 80vw;
+        border-radius: 8px;
+    }
+    .sectores-lista {
+        font-size: 0.8em;
+        gap: 4px;
+    }
+    .sector-con-selectores {
+        gap: 2px;
+    }
+    .selector-dino {
+        width: 18px;
+        height: 18px;
+        font-size: 0.8em;
+        border-radius: 3px;
+    }
+    .menu-dino {
+        border-radius: 3px;
+        min-width: 16px;
+        font-size: 0.8em;
+        gap: 2px;
+    }
+    .menu-dino-opcion {
+        font-size: 0.8em;
+        padding: 1px 2px;
+        border-radius: 2px;
+    }
+    .puntos-sector {
+        min-width: 8px;
+        font-size: 0.8em;
+        margin-right: 2px;
+    }
+    .total-puntos-container {
+        margin-top: 12px;
+        gap: 6px;
+        font-size: 1em;
+    }
+    .total-label, .total-puntos {
+        font-size: 1em;
+        min-width: 24px;
+    }
+        .cerrar-modal {
+            top: 4px;
+            right: 8px;
+            font-size: 1.2em;
+        }
+        .modal-contenido {
+            overflow-x: auto;
+            max-width: 90vw;
+            min-width: 70vw;
+        }
+        .sectores-lista {
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        .sector-con-selectores {
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
+        }
+        .selectores-dino {
+        flex-wrap: nowrap;
+        gap: 2px;
+        max-width: 100%;
+        overflow-x: auto;
+        }
 }

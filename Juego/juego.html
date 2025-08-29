@@ -12,11 +12,11 @@
 	<!-- Barra superior con navegación entre páginas y calculadora -->
 	<header class="barra-superior">
 	<!-- Botones de navegación: volver, resultado y calculadora -->
-		<nav>
-			<button class="boton-barra" id="volver">Volver</button>
-			<button class="boton-barra" id="resultado">Resultado</button>
-			<button class="boton-barra" id="calculadora">Calculadora</button>
-		</nav>
+		   <nav>
+			   <button class="boton-barra" id="volver">&#8592;</button>
+			   <button class="boton-barra" id="calculadora">🧮</button>
+			   <button class="boton-barra" id="opciones-juego">⚙️</button>
+		   </nav>
 	</header>
 	<aside id="modal-calculadora" class="modal-calculadora" style="display:none;">
 	<!-- Modal que muestra los sectores y permite seleccionar dinosaurios -->
@@ -113,6 +113,22 @@
 		</section>
 	</aside>
 	<main class="contenido-juego">
+	<!-- Modal de opciones para juego -->
+	<section id="modal-opciones-juego" class="modal-opciones" style="display:none;">
+		<div class="modal-contenido">
+			<h2>Opciones</h2>
+			<label for="volumen-juego">Sonido</label>
+			<input type="range" id="volumen-juego" min="1" max="100" value="50">
+			<span id="volumen-valor-juego">50</span>
+			<label for="mute-musica-juego" class="label-mute">
+				Quitar música
+				<input type="checkbox" id="mute-musica-juego">
+			</label>
+			<button id="finalizar-juego">Finalizar</button>
+			<button id="cerrar-modal-juego">Cerrar</button>
+		</div>
+	</section>
+	<script src="opciones.js" defer></script>
 	<!-- Imagen del tablero principal del juego -->
 		<img src="../imagenes/Tablero.png" alt="Tablero" class="tablero-img">
 	</main>

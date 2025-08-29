@@ -33,6 +33,32 @@ h1, .inicio-titulo {
 	flex-direction: column;
 	align-items: center;
 }
+
+/* Responsive para móvil 320x567px */
+@media (max-width: 400px), (max-height: 600px) {
+	.modal-contenido {
+		padding: 10px 8vw;
+		min-width: 60vw;
+		max-width: 80vw;
+		border-radius: 8px;
+	}
+	.modal-contenido h2,
+	.modal-contenido label,
+	.modal-contenido span {
+		margin-bottom: 8px;
+		font-size: 1em;
+	}
+	.modal-contenido input[type="range"] {
+		width: 120px;
+		margin-bottom: 6px;
+	}
+	.modal-contenido button {
+		margin-top: 8px;
+		padding: 6px 16px;
+		font-size: 0.95rem;
+		border-radius: 5px;
+	}
+}
 /* Elementos de texto dentro del modal */
 .modal-contenido h2,
 .modal-contenido label,
