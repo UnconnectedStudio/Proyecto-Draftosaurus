@@ -7,7 +7,7 @@ function cerrarOpcionesJuego() {
 }
 // Redirigir a resultado.html al tocar finalizar
 function finalizarPartida() {
-    window.location.href = '../Resultado/resultado.html';
+    window.location.href = '../Resultado/resultado.php';
 }
 // Actualizar el valor de la barra de volumen
 const volumenInputJuego = document.getElementById('volumen-juego');

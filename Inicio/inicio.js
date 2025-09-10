@@ -1,6 +1,6 @@
 // Redirigir a juego.html al tocar el botón Jugar
 document.getElementById('btn-jugar').addEventListener('click', function() {
-	window.location.href = '../Juego/juego.html';
+	window.location.href = '../Juego/juego.php';
 });
 
 // Mostrar el modal de opciones

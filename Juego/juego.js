@@ -1,7 +1,7 @@
 // Boton para volver a la página de inicio
 document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('volver').addEventListener('click', function() {
-		window.location.href = '../Inicio/inicio.html';
+		window.location.href = '../Inicio/inicio.php';
 	});
 	// Mostrar modal calculadora
 	document.getElementById('calculadora').addEventListener('click', function() {

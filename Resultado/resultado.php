@@ -10,7 +10,7 @@
 <body>
     <div class="resultado-container">
         <!-- Botón para volver al juego -->
-    <a href="../Inicio/inicio.html" class="btn-volver-juego">Inicio</a>
+    <a href="../Inicio/inicio.php" class="btn-volver-juego">Inicio</a>
         <!-- Título principal de la sección de resultados -->
         <h1 class="resultado-titulo">Resultado de la partida</h1>
         <!-- Datos de la partida: puntos, cantidad y tiempo -->
