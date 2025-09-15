@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draftosaurus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Pantalla principal -->
+    <main id="pantalla-principal" class="contenedor">
+        <!-- Área del fondo (izquierda) con marco informativo -->
+        <section class="area-fondo">
+            <article class="marco-informativo">
+                <header>
+                    <h1 class="titulo-info">DRAFTOSAURUS</h1>
+                    <h2 class="subtitulo-info">El juego de estrategia prehistórico</h2>
+                </header>
+                <section class="descripcion-info">
+                    <p>Draftosaurus es un juego de mesa de estrategia donde los jugadores se convierten en directores de parques de dinosaurios. Utiliza mecánicas de draft (selección de cartas) para crear el zoológico de dinosaurios más impresionante y obtener la mayor puntuación.</p>
+                </section>
+                <section class="caracteristicas-info row g-3">
+                    <article class="col-md-6">
+                        <section class="caracteristica card h-100">
+                            <section class="card-body text-center">
+                                <h3 class="caracteristica-titulo card-title">🎲 Jugadores</h3>
+                                <p class="caracteristica-texto card-text">2-5 Jugadores</p>
+                            </section>
+                        </section>
+                    </article>
+                    <article class="col-md-6">
+                        <section class="caracteristica card h-100">
+                            <section class="card-body text-center">
+                                <h3 class="caracteristica-titulo card-title">⏰ Duración</h3>
+                                <p class="caracteristica-texto card-text">10-15 minutos</p>
+                            </section>
+                        </section>
+                    </article>
+                    <article class="col-md-6">
+                        <section class="caracteristica card h-100">
+                            <section class="card-body text-center">
+                                <h3 class="caracteristica-titulo card-title">🧠 Estrategia</h3>
+                                <p class="caracteristica-texto card-text">Draft & Colocación</p>
+                            </section>
+                        </section>
+                    </article>
+                    <article class="col-md-6">
+                        <section class="caracteristica card h-100">
+                            <section class="card-body text-center">
+                                <h3 class="caracteristica-titulo card-title">🏆 Objetivo</h3>
+                                <p class="caracteristica-texto card-text">Máxima puntuación</p>
+                            </section>
+                        </section>
+                    </article>
+                </section>
+            </article>
+        </section>
+        <!-- Marco lateral derecho -->
+        <aside class="marco-lateral">
+            <section class="contenido-marco">
+                <figure class="logo-principal">
+                    <img src="/recursos/img/logoDraftosaurus-titulo-sinfondon.png" alt="Logo Draftosaurus" width="800">
+                </figure>
+                <figure class="logo-empresa">
+                    <img src="/recursos/img/logoEmpresa-sinfondo.png" alt="Logo Empresa">
+                </figure>
+                <button id="boton-jugar" class="boton-jugar-marco" onclick="handleClick()">
+                    Jugar
+                </button>
+            </section>
+        </aside>
+    </main>
+    <!-- Pantalla de opciones (inicialmente oculta) -->
+    <section id="pantalla-opciones" class="pantalla-opciones oculta">
+        <section class="opciones-container">
+            <article class="opcion-card" onclick="seleccionarOpcion(1)">
+                <section class="opcion-contenido">
+                    <figure class="opcion-imagen">
+                        <img src="/recursos/img/auximg.png" alt="Imagen representativa del Modo Auxiliar">
+                    </figure>
+                    <section class="opcion-texto">
+                        <h3>Modo Auxiliar</h3>
+                        <p>Juega la experiencia tradicional, pero mejorada</p>
+                    </section>
+                </section>
+            </article>
+            <article class="opcion-card" onclick="seleccionarOpcion(2)">
+                <section class="opcion-contenido">
+                    <figure class="opcion-imagen">
+                        <img src="/recursos/img/jugableLOGO.png" alt="Logo del Modo Jugable">
+                    </figure>
+                    <section class="opcion-texto">
+                        <h3>Modo Jugable</h3>
+                        <p>Juega la experiencia tradicional, pero ahora en digital</p>
+                    </section>
+                </section>
+            </article>
+        </section>
+        <!-- Botón para volver -->
+        <nav>
+            <button class="boton-volver" onclick="volverAtras()">
+                ← Volver
+            </button>
+        </nav>
+    </section>
+    <footer>
+        <p class="texto1">version: 0.5</p>
+    </footer>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script1.js"></script>
+</body>
+</html>
